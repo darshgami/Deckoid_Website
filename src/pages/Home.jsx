@@ -118,12 +118,12 @@ export default function Home() {
     <div className="space-y-0 overflow-hidden">
 
       {/* 1. Hero Section */}
-      <section className="relative w-full h-[91vh] min-h-[630px] flex items-center justify-center overflow-hidden bg-[#0a0a1a]">
+      <section className="relative w-full h-[110vh] min-h-[630px] flex items-center justify-center overflow-hidden bg-[#0a0a1a]">
         {/* Banner Image Background */}
         <img
           src="/Deckoid_Banner.png"
           alt="Deckoid Banner Background"
-          className="absolute inset-0 w-full h-[100vh] object-cover object-bottom z-0"
+          className="absolute inset-0 w-full h-[110vh] object-cover object-bottom z-0"
           loading="eager"
         />
       </section>

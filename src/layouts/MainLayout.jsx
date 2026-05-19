@@ -56,7 +56,7 @@ export default function MainLayout() {
     <div className="flex flex-col min-h-screen bg-transparent text-gray-900 selection:bg-lavender selection:text-midnight">
       <ScrollToTop />
       <Navbar />
-      <main className="flex-grow pt-[72px]">
+      <main className="flex-grow pt-[0px]">
         <Outlet />
       </main>
       <Footer />
