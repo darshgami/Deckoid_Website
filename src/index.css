@@ -1,0 +1,225 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700;800&display=swap');
+
+@import "tailwindcss";
+
+@theme {
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-display: 'Poppins', system-ui, -apple-system, sans-serif;
+  
+  /* Premium Light Theme Colors */
+  --color-primary: #7C5CFF;
+  --color-soft-purple: #9F85FF;
+  --color-lavender: #EEE9FF;
+  --color-accent-purple: #8B5CF6;
+  
+  --color-white: #FFFFFF;
+  --color-secondary-bg: #F8F7FC;
+  --color-soft-lavender-bg: #F3EEFF;
+  --color-card-bg: rgba(255, 255, 255, 0.9);
+  
+  --color-primary-text: #111827;
+  --color-secondary-text: #4B5563;
+  --color-muted-text: #6B7280;
+  
+  --color-soft-border: #E5E7EB;
+  --color-purple-border: rgba(124, 92, 255, 0.12);
+
+  /* Mapping for classes used in the project */
+  --color-indigo-600: #7C5CFF;
+  --color-indigo-700: #8B5CF6;
+  --color-indigo-400: #9F85FF;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #F8F7FC;
+}
+::-webkit-scrollbar-thumb {
+  background: #EEE9FF;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #9F85FF;
+}
+
+html, body {
+  font-family: var(--font-sans);
+  background: linear-gradient(135deg, #FFFFFF 0%, #FAF8FF 40%, #F3EEFF 100%);
+  background-attachment: fixed;
+  color: #111827;
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+  line-height: 1.6;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+  color: #111827;
+}
+
+/* Premium Light Cards */
+.glass-card, .bg-white\/5, .bg-white\/10 {
+  background: rgba(255, 255, 255, 0.88) !important;
+  backdrop-filter: blur(10px) !important;
+  -webkit-backdrop-filter: blur(10px) !important;
+  border: 1px solid rgba(124, 92, 255, 0.08) !important;
+  border-radius: 24px !important;
+  box-shadow: 0 10px 30px rgba(124, 92, 255, 0.06) !important;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+.glass-card:hover, .bg-white\/5:hover, .bg-white\/10:hover {
+  box-shadow: 0 15px 35px rgba(124, 92, 255, 0.12) !important;
+  border-color: rgba(124, 92, 255, 0.15) !important;
+  transform: translateY(-4px);
+}
+
+/* Premium Button style overrides for bg-indigo-600 */
+.bg-indigo-600 {
+  background: linear-gradient(135deg, #8B5CF6 0%, #7C5CFF 100%) !important;
+  box-shadow: 0 8px 25px rgba(124, 92, 255, 0.15) !important;
+  border: none !important;
+  color: #FFFFFF !important;
+  border-radius: 9999px !important; /* Fully rounded corners for standard buttons */
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+.bg-indigo-600:hover {
+  filter: brightness(1.05) !important;
+  box-shadow: 0 12px 30px rgba(124, 92, 255, 0.3) !important;
+  transform: translateY(-2px) !important;
+}
+
+/* Navbar */
+header.fixed {
+  background: rgba(125, 92, 255, 0.448) !important;
+  backdrop-filter: blur(16px) !important;
+  -webkit-backdrop-filter: blur(16px) !important;
+  border-bottom: 1px solid rgba(229, 231, 235, 0.4) !important;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.02) !important;
+}
+
+/* Navbar Active Links & Accent Text */
+.text-accent-purple, .bg-accent-purple {
+  color: #8B5CF6 !important;
+}
+
+.bg-accent-purple {
+  background-color: #EEE9FF !important; /* Lavender background for active/hover */
+}
+
+/* Custom Input & Textarea fields */
+input, textarea {
+  background-color: rgba(255, 255, 255, 0.95) !important;
+  border: 1px solid #E5E7EB !important;
+  color: #111827 !important;
+  border-radius: 12px;
+  transition: all 0.3s ease !important;
+}
+
+input::placeholder, textarea::placeholder {
+  color: #9CA3AF !important; /* Muted grey text */
+}
+
+input:focus, textarea:focus {
+  border-color: #8B5CF6 !important;
+  box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.15) !important;
+  background-color: #FFFFFF !important;
+  outline: none !important;
+}
+
+/* Scroll Animation Transitions */
+.reveal-element {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal-element.revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal-element-left {
+  opacity: 0;
+  transform: translateX(-30px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal-element-left.revealed {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.reveal-element-right {
+  opacity: 0;
+  transform: translateX(30px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal-element-right.revealed {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.reveal-element-scale {
+  opacity: 0;
+  transform: scale(0.95);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal-element-scale.revealed {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Custom stats circle animation */
+.swot-circle {
+  width: 170px;
+  height: 170px;
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  border: 1px dashed rgba(124, 92, 255, 0.3);
+  background: rgba(255, 255, 255, 0.6);
+  box-shadow: 0 8px 25px rgba(124, 92, 255, 0.05);
+}
+
+.swot-circle:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 35px rgba(124, 92, 255, 0.15);
+  border-style: solid;
+  border-color: #7C5CFF;
+  background: #FFFFFF;
+}
+
+/* Swiper.js Navigation Styles overrides */
+.swiper-button-next, .swiper-button-prev {
+  color: #7C5CFF !important;
+  transition: all 0.3s ease;
+}
+
+.swiper-button-next:hover, .swiper-button-prev:hover {
+  transform: scale(1.1);
+  color: #8B5CF6 !important;
+}
+
+.swiper-pagination-bullet-active {
+  background: #7C5CFF !important;
+  width: 24px !important;
+  border-radius: 4px !important;
+}
+
+.swiper-pagination-bullet {
+  background: #9CA3AF;
+  opacity: 0.6;
+}
