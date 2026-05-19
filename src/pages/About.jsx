@@ -9,7 +9,7 @@ export default function About() {
     <div className="space-y-0">
       
       {/* 1. Header Banner */}
-      <section className="relative bg-transparent py-20 border-b border-gray-200 overflow-hidden">
+      {/* <section className="relative bg-transparent py-20 border-b border-gray-200 overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-lavender/5 via-transparent to-transparent opacity-60" />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-left">
           <div className="max-w-3xl space-y-4 reveal-element">
@@ -25,7 +25,7 @@ export default function About() {
             </p>
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* 2. Parallax Story Block */}
       <section className="bg-transparent py-24 relative overflow-hidden">

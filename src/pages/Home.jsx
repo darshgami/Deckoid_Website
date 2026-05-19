@@ -1,11 +1,12 @@
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay, Pagination, Navigation } from 'swiper/modules';
-import { 
-  FaArrowRight, FaWhatsapp, FaUserCheck, FaCheck, FaDraftingCompass, 
-  FaHeadphones, FaLaptopCode, FaPalette, FaShareAlt, FaBullhorn, 
+import {
+  FaArrowRight, FaWhatsapp, FaUserCheck, FaCheck, FaDraftingCompass,
+  FaHeadphones, FaLaptopCode, FaPalette, FaShareAlt, FaBullhorn,
   FaVideo, FaSearch, FaEnvelope, FaUser, FaStickyNote, FaLocationArrow,
-  FaBolt, FaGoogle, FaCogs
+  FaBolt, FaGoogle, FaCogs, FaChevronDown
 } from 'react-icons/fa';
 import { BiLineChart, BiAward, BiGroup, BiBullseye, BiPalette } from 'react-icons/bi';
 
@@ -15,9 +16,6 @@ import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 
 // Asset Imports
-import heroVideo from '../assets/MicrosoftTeams-video.mp4';
-import team1 from '../assets/teamimg.jpg';
-import team2 from '../assets/team img1.jpg';
 import awardTrophy from '../assets/Group 5.png';
 
 // Service Images
@@ -39,8 +37,6 @@ import t1Profile from '../assets/testimonial-1-profile.png';
 import t1Img from '../assets/testimonial-1.png';
 import t2Profile from '../assets/testimonial-2-profile.png';
 import t2Img from '../assets/testimonial-2.png';
-import t3Profile from '../assets/testimonial-3-profile.png';
-import t3Img from '../assets/testimonial-3.png';
 import t4Profile from '../assets/testimonial-4-profile.png';
 import t4Img from '../assets/testimonial-4.jpeg';
 import t5Profile from '../assets/testimonial-5-profile.png';
@@ -50,32 +46,63 @@ import t6Img from '../assets/testimonial-6.png';
 import t7Profile from '../assets/testimonial-7-profile.png';
 import t7Img from '../assets/testimonial-7.png';
 
-import StatCounter from '../components/StatCounter';
-
 export default function Home() {
+  const [openFaq, setOpenFaq] = useState(0);
+
+  const faqData = [
+    {
+      question: "What services does Deckoid Solution offer?",
+      answer: "Deckoid Solution is a full-service digital marketing agency in Rajkot offering SEO, social media management, Facebook Ads, website design, graphic design, video editing, and branding. We serve businesses across Gujarat and India."
+    },
+    {
+      question: "Is Deckoid Solution a local agency in Rajkot or do they serve clients across India?",
+      answer: "Both. We are based in Rajkot, Gujarat, and serve local businesses in Saurashtra as well as clients across India. Our strategies are tailored to each client's target market — local, regional, or national."
+    },
+    {
+      question: "Has Deckoid Solution won any awards?",
+      answer: "Yes. Deckoid Solution was recognised at the Saurashtra IT-ITeS Excellence Awards 2024, presented by the Rajkot Information Technology Association (RITA), for outstanding achievements in IT and Digital Marketing."
+    },
+    {
+      question: "How can digital marketing help my business in Rajkot grow?",
+      answer: "Digital marketing helps Rajkot businesses reach more customers online through SEO, social media, paid ads, and a strong website. Deckoid Solution creates data-backed strategies to increase website traffic, generate quality leads, and improve ROI for businesses of all sizes."
+    },
+    {
+      question: "What results has Deckoid Solution achieved for its clients?",
+      answer: "Our campaigns have delivered a 120% increase in website traffic, 2x lead growth through Facebook Ads, and an average 200% ROI for our clients across multiple industries in India."
+    },
+    {
+      question: "How do I get started with Deckoid Solution?",
+      answer: "You can reach us via WhatsApp, email at digitaldeckoid@gmail.com, or by filling out the contact form on our website. We start with a free consultation to understand your business goals before recommending any strategy."
+    },
+    {
+      question: "Does Deckoid Solution use AI in their digital marketing services?",
+      answer: "Yes. Deckoid Solution integrates AI tools across all major services — including AI-assisted keyword research and content analysis for SEO, AI-powered audience targeting for Facebook Ads, behaviour-based UX decisions for website design, and AI-enhanced production for graphic design and video editing. This allows us to deliver faster, more precise, and more cost-effective results for businesses in Rajkot and across India."
+    }
+  ];
+
   const handleContactSubmit = (e) => {
     e.preventDefault();
     alert('Thank you! Your message has been received successfully. A Deckoid representative will connect with you shortly.');
   };
 
   const services = [
-    { title: 'Website Design & Development', img: serviceWeb, icon: FaLaptopCode, desc: 'High-performance optimized custom code architectures built to convert visitors.' },
-    { title: 'Graphic Design', img: serviceGraphic, icon: FaPalette, desc: 'Impactful brand identity design, visuals, and marketing assets.' },
-    { title: 'Social Media Management', img: serviceSocial, icon: FaShareAlt, desc: 'End-to-end strategic organic brand building, design, and consistency.' },
-    { title: 'Facebook Paid Ads', img: serviceAds, icon: FaBullhorn, desc: 'ROI-focused campaigns designed to scale leads and digital revenues.' },
+    { title: 'Website Design & Development', img: serviceWeb, icon: FaLaptopCode, desc: 'AI-informed UX decisions based on user behaviour data.' },
+    { title: 'Graphic Design', img: serviceGraphic, icon: FaPalette, desc: 'AI-enhanced production for faster creative turnaround.' },
+    { title: 'Social Media Management', img: serviceSocial, icon: FaShareAlt, desc: 'AI-assisted content scheduling & performance analytics.' },
+    { title: 'Facebook Paid Ads', img: serviceAds, icon: FaBullhorn, desc: 'AI-powered audience targeting & budget optimisation.' },
     { title: 'Google Ads', img: serviceAds, icon: FaGoogle, desc: 'Targeted search engine marketing and display campaigns for instant leads.' },
-    { title: 'Ai Video Editing', img: serviceVideo, icon: FaVideo, desc: 'Premium, modern storytelling, reels, and video ads powered by AI.' },
-    { title: 'Search Engine Optimization', img: serviceSEO, icon: FaSearch, desc: 'Rank high on Google for relevant search keywords to drive organic leads.' },
+    { title: 'Ai Video Editing', img: serviceVideo, icon: FaVideo, desc: 'AI-assisted editing, subtitles & format optimisation' },
+    { title: 'Search Engine Optimization', img: serviceSEO, icon: FaSearch, desc: 'AI-assisted keyword research, content gap analysis & rank tracking.' },
     { title: 'Customized ERP Software', img: serviceWeb, icon: FaCogs, desc: 'Tailored enterprise resource systems to streamline operations and business workflow.' }
   ];
 
   const valueCards = [
-    { icon: BiLineChart, title: 'Driving Growth With Smart Strategy', desc: 'We build marketing and communication systems that help your brand grow faster and perform better.' },
-    { icon: BiAward, title: 'Expertise That Delivers', desc: 'Our experienced team blends creativity with strategy to craft solutions that generate real impact.' },
-    { icon: FaBolt, title: 'Built To Adapt & Evolve', desc: 'Markets change fast—we help your brand stay ahead with ideas that evolve even faster.' },
-    { icon: BiGroup, title: 'Your All-In-One Marketing Partner', desc: 'From design to development to digital marketing, we manage your full growth engine.' },
-    { icon: BiBullseye, title: 'Strategies That Lead The Market', desc: 'High-impact ideas crafted to stand out, perform, and convert across every digital channel.' },
-    { icon: BiPalette, title: 'Creative That Captures Attention', desc: 'We craft visuals, websites, ads, and content that captivate audiences and elevate your brand.' }
+    { icon: BiLineChart, title: 'AI-Powered Business Growth', desc: 'We deploy advanced digital marketing systems and AI-driven analytics to exponentially scale your business revenue.' },
+    { icon: BiAward, title: 'Data-Backed Digital Expertise', desc: 'Our team leverages predictive AI insights to craft high-converting campaigns that dominate your industry.' },
+    { icon: FaBolt, title: 'Rapid Agile Adaptation', desc: 'Using real-time machine learning trends, we adapt your digital presence instantly to stay miles ahead of competitors.' },
+    { icon: BiGroup, title: 'Full-Stack Marketing Partner', desc: 'From custom ERPs to AI video editing, we are the comprehensive growth engine for modern, tech-forward businesses.' },
+    { icon: BiBullseye, title: 'Precision Market Targeting', desc: 'We utilize AI audience modeling to deliver hyper-personalized digital ads that maximize ROI across all channels.' },
+    { icon: BiPalette, title: 'Intelligent Creative Design', desc: 'Combining human creativity with AI enhancement, we produce striking visual assets and websites that captivate and convert.' }
   ];
 
   const testimonials = [
@@ -89,69 +116,28 @@ export default function Home() {
 
   return (
     <div className="space-y-0 overflow-hidden">
-      
-      {/* 1. Hero Section */}
-      <section className="relative w-full h-[85vh] min-h-[600px] flex items-center justify-start overflow-hidden">
-        {/* Ambient Video Background */}
-        <video 
-          className="absolute inset-0 w-full h-full object-cover z-0 filter brightness-45 contrast-105"
-          autoPlay 
-          loop 
-          muted 
-          playsInline
-          preload="metadata"
-        >
-          <source src={heroVideo} type="video/mp4" />
-          Your browser does not support the video tag.
-        </video>
-        
-        {/* Dark subtle vignette layer */}
-        <div className="absolute inset-0 bg-gradient-to-t from-white via-white/80 to-transparent z-10" />
 
-        {/* Content */}
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-20 w-full">
-          <div className="max-w-3xl space-y-6 text-left reveal-element">
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black text-gray-900 leading-tight font-display tracking-tight">
-              Crafting Digital Experiences That <span className="text-transparent bg-clip-text bg-gradient-to-r from-lavender via-indigo-300 to-white">Build, Elevate & Accelerate</span> Brands
-            </h1>
-            <p className="text-base sm:text-lg text-gray-600 leading-relaxed font-normal">
-              At Deckoid Solutions, we design strategic brand identities, high-performance websites, and result-driven digital communication. Our approach blends creativity, technology, and business clarity to deliver solutions that attract customers, improve visibility, and strengthen long-term growth.
-            </p>
-            <div className="flex flex-wrap gap-2 text-xs sm:text-sm font-semibold tracking-wide text-accent-purple/90 pt-2 border-t border-gray-200">
-              <span>Branding</span> • <span>Web Design</span> • <span>Digital Communication</span> • <span>Creative Strategy</span>
-            </div>
-            <div className="flex flex-wrap gap-4 pt-4">
-              <Link 
-                to="/services" 
-                className="inline-flex items-center gap-2 px-7 py-3.5 text-sm font-bold text-midnight bg-lavender rounded-full shadow-[0_4px_20px_rgba(182,149,231,0.4)] transition-all duration-300 hover:bg-white hover:shadow-[0_4px_25px_rgba(255,255,255,0.4)] hover:-translate-y-0.5"
-              >
-                Explore Our Work
-                <FaArrowRight className="text-xs" />
-              </Link>
-              <a 
-                href="https://api.whatsapp.com/send/?phone=919586536724" 
-                target="_blank" 
-                rel="noopener noreferrer" 
-                className="inline-flex items-center gap-2 px-7 py-3.5 text-sm font-bold text-gray-900 glass-card rounded-full border border-gray-200 backdrop-blur-sm transition-all duration-300 hover:glass-card hover:-translate-y-0.5"
-              >
-                <FaWhatsapp className="text-lg text-emerald-400" />
-                Let's Work Together
-              </a>
-            </div>
-          </div>
-        </div>
+      {/* 1. Hero Section */}
+      <section className="relative w-full h-[91vh] min-h-[630px] flex items-center justify-center overflow-hidden bg-[#0a0a1a]">
+        {/* Banner Image Background */}
+        <img
+          src="/Deckoid_Banner.png"
+          alt="Deckoid Banner Background"
+          className="absolute inset-0 w-full h-[100vh] object-cover object-bottom z-0"
+          loading="eager"
+        />
       </section>
 
       {/* 2. About us Brief Section */}
       {/* <section className="bg-transparent py-24 relative overflow-hidden"> */}
-        {/* Decorative elements */}
-        <div className="absolute top-1/2 left-0 w-80 h-80 bg-lavender/5 rounded-full filter blur-3xl pointer-events-none" />
+      {/* Decorative elements */}
+      <div className="absolute top-1/2 left-0 w-80 h-80 bg-lavender/5 rounded-full filter blur-3xl pointer-events-none" />
 
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
-            
-            {/* Left Image Carousel */}
-            {/* <div className="lg:col-span-5 reveal-element-left">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
+
+          {/* Left Image Carousel */}
+          {/* <div className="lg:col-span-5 reveal-element-left">
               <div className="relative group p-2 glass-card rounded-3xl border border-gray-200 shadow-2xl backdrop-blur-md overflow-hidden aspect-4/3">
                 <Swiper
                   modules={[Autoplay, Pagination, Navigation]}
@@ -180,8 +166,8 @@ export default function Home() {
               </div>
             </div> */}
 
-            {/* Right Text Content */}
-            {/* <div className="lg:col-span-7 space-y-6 text-left reveal-element-right">
+          {/* Right Text Content */}
+          {/* <div className="lg:col-span-7 space-y-6 text-left reveal-element-right">
               <div className="space-y-2">
                 <span className="text-xs font-bold text-accent-purple tracking-widest uppercase">
                   Who We Are
@@ -216,16 +202,16 @@ export default function Home() {
               </div>
             </div> */}
 
-          </div>
         </div>
+      </div>
       {/* </section> */}
 
       {/* 3. Full-width Award Header Section */}
-      <section className="bg-transparent py-20 border-y border-gray-200 relative overflow-hidden">
+      <section className="bg-transparent py-12 border-t border-gray-200 relative overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-indigo-500/10 via-transparent to-transparent opacity-50" />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-            
+
             {/* Left: Text Content */}
             <div className="lg:col-span-7 text-left space-y-6 reveal-element-left">
               <span className="text-xs font-bold text-accent-purple tracking-widest uppercase">
@@ -234,9 +220,9 @@ export default function Home() {
               <h2 className="text-3xl sm:text-4xl font-extrabold text-gray-900 leading-tight">
                 Recognized for Digital Brilliance
               </h2>
-              <i className="text-base sm:text-lg text-accent-purple font-medium block">
+              <h1 className="text-base sm:text-lg text-accent-purple font-medium block">
                 Award-Winning Digital Marketing Agency – Deckoid Solutions
-              </i>
+              </h1>
               <p className="text-gray-600 leading-relaxed text-sm sm:text-base">
                 <b>Deckoid Solutions</b> is proud to be honored at the <b>Saurashtra IT-ITeS Excellence Awards 2024</b>, presented by the <b>Rajkot Information Technology Association (RITA).</b> This prestigious recognition celebrates our outstanding achievements in <b>IT and Digital Marketing</b>, reaffirming our commitment to innovation, creativity, and measurable success for our clients.
               </p>
@@ -246,36 +232,24 @@ export default function Home() {
             <div className="lg:col-span-5 flex justify-center reveal-element-right">
               <div className="relative group max-w-sm">
                 <div className="absolute -inset-1.5 bg-gradient-to-r from-lavender to-indigo-600 rounded-2xl blur-lg opacity-40 group-hover:opacity-75 transition duration-1000 group-hover:duration-200" />
-                <img 
-                  src={awardTrophy} 
-                  alt="Saurashtra IT-ITeS Excellence Award Trophy" 
-                  className="relative img-fluid max-h-96 object-contain transition-transform duration-500 group-hover:scale-103 animate-pulse"
+                <img
+                  src={awardTrophy}
+                  alt="Saurashtra IT-ITeS Excellence Award Trophy"
+                  className="relative img-fluid max-h-96 object-contain transition-transform duration-500 group-hover:scale-103 "
                   loading="lazy"
                 />
               </div>
             </div>
-
           </div>
         </div>
       </section>
 
-      {/* 4. Facts Counter Row */}
-      <section className="bg-transparent py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 reveal-element-scale">
-            <StatCounter target={120} title="Traffic Growth" suffix="%" />
-            <StatCounter target={2} title="Lead Ads Scale" prefix="" suffix="x" />
-            <StatCounter target={200} title="Average Return" suffix="% ROI" />
-            <StatCounter target={100} title="Happy Clients" suffix="+" />
-          </div>
-        </div>
-      </section>
 
       {/* 5. Services Cards Section */}
-      <section className="bg-transparent py-24 relative overflow-hidden border-t border-gray-200">
+      <section className="bg-transparent py-12 relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          
-          <div className="text-center max-w-3xl mx-auto mb-20 space-y-4 reveal-element">
+
+          <div className="text-center max-w-3xl mx-auto mb-10 space-y-4 reveal-element">
             <span className="text-xs font-bold text-accent-purple tracking-widest uppercase">
               Our Capabilities
             </span>
@@ -284,23 +258,23 @@ export default function Home() {
             </h2>
             <div className="w-16 h-1 bg-gradient-to-r from-lavender to-indigo-600 rounded-full mx-auto" />
             <p className="text-gray-500 text-sm sm:text-base leading-relaxed">
-              Every service at Deckoid Solutions is designed with clarity, creativity, and purpose. We combine strategic thinking, strong visual identity, powerful messaging, and performance-driven marketing to help your business grow.
+              Every service at Deckoid Solutions is designed with clarity, creativity, and purpose. From SEO and Facebook Ads to website design, graphic design, social media management, and video editing — our team covers every channel your brand needs to grow. Each service is enhanced with AI tools that improve speed, targeting, and results without adding to your cost.
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {services.map((service, index) => (
-              <div 
-                key={service.title} 
+              <div
+                key={service.title}
                 className="group flex flex-col glass-card border border-gray-200 rounded-2xl overflow-hidden shadow-xl hover:border-lavender/30 transition-all duration-300 hover:-translate-y-1.5 reveal-element"
                 style={{ transitionDelay: `${index * 100}ms` }}
               >
                 {/* Thumbnail Image */}
-                <div className="relative overflow-hidden h-52">
+                <div className="relative overflow-hidden h-85">
                   <div className="absolute inset-0 bg-gradient-to-t from-midnight/90 via-transparent to-transparent z-10" />
-                  <img 
-                    src={service.img} 
-                    alt={service.title} 
+                  <img
+                    src={service.img}
+                    alt={service.title}
                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                     loading="lazy"
                   />
@@ -317,8 +291,8 @@ export default function Home() {
                     </p>
                   </div>
                   <div className="pt-2">
-                    <Link 
-                      to="/services" 
+                    <Link
+                      to="/services"
                       className="inline-flex items-center gap-1.5 text-xs font-bold text-accent-purple tracking-wider uppercase group-hover:text-gray-900 transition-colors duration-300"
                     >
                       View Works
@@ -335,10 +309,10 @@ export default function Home() {
       </section>
 
       {/* 6. Metrics and Analytics Section */}
-      <section className="bg-transparent py-24 border-t border-gray-200 relative overflow-hidden">
+      <section className="bg-transparent py-12 relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          
-          <div className="text-center max-w-3xl mx-auto mb-20 space-y-4 reveal-element">
+
+          <div className="text-center max-w-3xl mx-auto mb-10 space-y-4 reveal-element">
             <span className="text-xs font-bold text-accent-purple tracking-widest uppercase">
               Proven Performance
             </span>
@@ -352,7 +326,7 @@ export default function Home() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12 text-left">
-            
+
             {/* Metric 1 */}
             <div className="flex flex-col glass-card border border-gray-200 rounded-3xl overflow-hidden p-6 sm:p-8 space-y-6 hover:border-lavender/30 transition-all duration-300 reveal-element-left">
               <div>
@@ -364,9 +338,9 @@ export default function Home() {
                 </p>
               </div>
               <div className="relative group bg-transparent border border-gray-200 rounded-2xl p-4 overflow-hidden flex items-center justify-center">
-                <img 
-                  src={metric1} 
-                  alt="Award Winning Performance analytics" 
+                <img
+                  src={metric1}
+                  alt="Award Winning Performance analytics"
                   className="max-h-72 w-auto object-contain rounded-xl transition-transform duration-500 group-hover:scale-102"
                   loading="lazy"
                 />
@@ -384,9 +358,9 @@ export default function Home() {
                 </p>
               </div>
               <div className="relative group bg-transparent border border-gray-200 rounded-2xl p-4 overflow-hidden flex items-center justify-center">
-                <img 
-                  src={metric2} 
-                  alt="Website Traffic Analytics chart" 
+                <img
+                  src={metric2}
+                  alt="Website Traffic Analytics chart"
                   className="max-h-72 w-auto object-contain rounded-xl transition-transform duration-500 group-hover:scale-102"
                   loading="lazy"
                 />
@@ -404,9 +378,9 @@ export default function Home() {
                 </p>
               </div>
               <div className="relative group bg-transparent border border-gray-200 rounded-2xl p-4 overflow-hidden flex items-center justify-center">
-                <img 
-                  src={metric3} 
-                  alt="Facebook Ads Lead Generation chart" 
+                <img
+                  src={metric3}
+                  alt="Facebook Ads Lead Generation chart"
                   className="max-h-72 w-auto object-contain rounded-xl transition-transform duration-500 group-hover:scale-102"
                   loading="lazy"
                 />
@@ -424,9 +398,9 @@ export default function Home() {
                 </p>
               </div>
               <div className="relative group bg-transparent border border-gray-200 rounded-2xl p-4 overflow-hidden flex items-center justify-center">
-                <img 
-                  src={metric4} 
-                  alt="Average ROI Marketing dashboard representation" 
+                <img
+                  src={metric4}
+                  alt="Average ROI Marketing dashboard representation"
                   className="max-h-72 w-auto object-contain rounded-xl transition-transform duration-500 group-hover:scale-102"
                   loading="lazy"
                 />
@@ -439,26 +413,27 @@ export default function Home() {
       </section>
 
       {/* 7. Why Choose Deckoid Section */}
-      <section className="bg-transparent py-24 border-t border-gray-200 relative overflow-hidden">
+      <section className="bg-transparent py-12  relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          
-          <div className="text-center max-w-3xl mx-auto mb-20 space-y-4 reveal-element">
+
+          <div className="text-center max-w-3xl mx-auto mb-10 space-y-4 reveal-element">
             <span className="text-xs font-bold text-accent-purple tracking-widest uppercase">
               Our Core Strengths
             </span>
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-gray-900">
-              Why Choose Deckoid Solutions?
+              Why Businesses Trust <br />
+              <span className="text-accent-purple">Deckoid Solutions?</span>
             </h2>
             <div className="w-16 h-1 bg-gradient-to-r from-lavender to-indigo-600 rounded-full mx-auto" />
             <p className="text-gray-500 text-sm sm:text-base">
-              Purpose-driven creativity, clear strategy, and digital solutions that create real business growth.
+              Businesses across Rajkot, Gujarat, and India choose Deckoid because we focus on real results not vanity metrics. We use AI tools to work smarter: faster research, better targeting, and clearer reporting so your budget goes further. We think strategically, execute creatively, and stay with you through every stage of growth
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {valueCards.map((card, index) => (
-              <div 
-                key={card.title} 
+              <div
+                key={card.title}
                 className="group text-left p-8 glass-card border border-gray-200 rounded-2xl hover:border-lavender/30 transition-all duration-300 hover:-translate-y-1 reveal-element"
                 style={{ transitionDelay: `${index * 100}ms` }}
               >
@@ -479,33 +454,14 @@ export default function Home() {
       </section>
 
       {/* 8. Call To Action Connect Banner */}
-      <section className="bg-transparent py-20 border-y border-gray-200 relative overflow-hidden">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center space-y-6 reveal-element-scale">
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-gray-900">
-            Let's Build a Digital Experience That Stands Out ✨
-          </h2>
-          <p className="text-gray-600 max-w-2xl mx-auto leading-relaxed text-sm sm:text-base">
-            We help forward-thinking brands grow with strategy, creativity, and technology. From branding to conversion-driven web design — let's transform your digital future together.
-          </p>
-          <div className="pt-4">
-            <a 
-              href="https://api.whatsapp.com/send/?phone=919586536724" 
-              target="_blank" 
-              rel="noopener noreferrer" 
-              className="inline-flex items-center gap-2 px-8 py-4 text-base font-bold text-midnight bg-lavender rounded-full shadow-lg transition-all duration-300 hover:bg-white hover:-translate-y-0.5"
-            >
-              <FaWhatsapp className="text-xl text-emerald-600 animate-bounce" />
-              Let's Connect
-            </a>
-          </div>
-        </div>
+      <section className="bg-transparent py-2 relative overflow-hidden">
       </section>
 
       {/* 9. Testimonial Section */}
-      <section className="bg-transparent py-24 relative overflow-hidden">
+      <section className="bg-transparent py-12 relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          
-          <div className="text-center max-w-3xl mx-auto mb-20 space-y-4 reveal-element">
+
+          <div className="text-center max-w-3xl mx-auto mb-10 space-y-4 reveal-element">
             <span className="text-xs font-bold text-accent-purple tracking-widest uppercase">
               Client Feedback
             </span>
@@ -532,27 +488,27 @@ export default function Home() {
               {testimonials.map((test, idx) => (
                 <SwiperSlide key={idx} className="h-full">
                   <div className="flex flex-col items-center glass-card border border-gray-200 rounded-3xl p-6 h-full text-center hover:border-lavender/30 transition-all duration-300 hover:-translate-y-1">
-                    
+
                     {/* User profile picture */}
                     <div className="w-20 h-20 rounded-full overflow-hidden border-2 border-lavender glass-card mb-6 shrink-0">
-                      <img 
-                        src={test.profile} 
-                        alt="Client review profile" 
+                      <img
+                        src={test.profile}
+                        alt="Client review profile"
                         className="w-full h-full object-cover"
                         loading="lazy"
                       />
                     </div>
 
-                    {/* Testimonial Google review image overlay */}
-                    <div className="glass-card border border-gray-200 rounded-2xl p-4 flex items-center justify-center overflow-hidden mb-4 aspect-4/3 w-full flex-grow">
-                      <img 
-                        src={test.reviewImg} 
-                        alt="Google Review snippet details" 
-                        className="max-h-36 object-contain rounded-lg transition-transform duration-300 hover:scale-103"
+                    {/* Testimonial Google review image */}
+                    <div className="flex items-center justify-center overflow-hidden mb-4 w-full flex-grow">
+                      <img
+                        src={test.reviewImg}
+                        alt="Google Review snippet details"
+                        className="w-full h-auto object-contain rounded-lg transition-transform duration-300 hover:scale-[1.03]"
                         loading="lazy"
                       />
                     </div>
-                    
+
                     <span className="text-xs italic text-gray-500 tracking-wider">
                       {test.name} • Google Review
                     </span>
@@ -566,12 +522,60 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 10. Contact Us Form Section */}
-      <section className="bg-transparent py-24 border-t border-gray-200 relative overflow-hidden">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      {/* 9.5 FAQ Section */}
+      <section className="bg-transparent py-12 relative overflow-hidden">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           
+          <div className="text-center mb-10 space-y-4 reveal-element">
+            <span className="text-xs font-bold text-accent-purple tracking-widest uppercase">
+              FAQS • COMMON QUESTIONS
+            </span>
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-gray-900">
+              Everything You Need to Know
+            </h2>
+            <div className="w-16 h-1 bg-gradient-to-r from-lavender to-indigo-600 rounded-full mx-auto" />
+            <p className="text-gray-500 text-sm sm:text-base">
+              Get answers to the most common questions about our digital marketing, branding, website development, SEO, and AI-powered business solutions.
+            </p>
+          </div>
+
+          <div className="space-y-4 reveal-element">
+            {faqData.map((faq, index) => (
+              <div 
+                key={index} 
+                className={`glass-card border rounded-2xl overflow-hidden transition-all duration-300 ${openFaq === index ? 'border-lavender shadow-[0_8px_30px_rgba(182,149,231,0.15)]' : 'border-gray-200 hover:border-lavender/50'}`}
+              >
+                <button
+                  onClick={() => setOpenFaq(openFaq === index ? null : index)}
+                  className="w-full flex items-center justify-between p-6 text-left focus:outline-none"
+                >
+                  <h3 className={`text-base sm:text-lg font-bold pr-8 transition-colors duration-300 ${openFaq === index ? 'text-accent-purple' : 'text-gray-900'}`}>
+                    {faq.question}
+                  </h3>
+                  <div className={`shrink-0 w-8 h-8 rounded-full flex items-center justify-center transition-all duration-300 ${openFaq === index ? 'bg-lavender text-accent-purple' : 'bg-gray-100 text-gray-500'}`}>
+                    <FaChevronDown className={`text-sm transition-transform duration-300 ${openFaq === index ? 'rotate-180' : ''}`} />
+                  </div>
+                </button>
+                <div 
+                  className={`overflow-hidden transition-all duration-300 ease-in-out ${openFaq === index ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'}`}
+                >
+                  <div className="p-6 pt-0 text-sm sm:text-base text-gray-600 leading-relaxed">
+                    {faq.answer}
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+
+        </div>
+      </section>
+
+      {/* 10. Contact Us Form Section */}
+      <section className="bg-transparent py-12 relative overflow-hidden">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
-            
+
             {/* Left side: content */}
             <div className="lg:col-span-5 text-left space-y-6 reveal-element-left">
               <span className="text-xs font-bold text-accent-purple tracking-widest uppercase">
@@ -582,13 +586,14 @@ export default function Home() {
               </h2>
               <div className="w-16 h-1 bg-gradient-to-r from-lavender to-indigo-600 rounded-full" />
               <p className="text-base text-gray-600 leading-relaxed">
-                Ready to elevate your brand with strategic digital solutions? Let's begin a meaningful conversation. We take the time to understand your goals, identify key opportunities, and provide clear, results-driven strategies. Whether you're launching a new project or seeking expert guidance, our team is here to support your digital growth.
+                Transform your brand with AI-driven digital marketing strategies built for modern business growth. We combine creativity, analytics, and intelligent marketing solutions to help businesses attract the right audience, increase engagement, and generate high-quality leads. Whether you're launching a new campaign or scaling your online presence, our team delivers performance-focused strategies that create measurable impact.
               </p>
-              
+
               <div className="p-6 glass-card border border-gray-200 rounded-2xl space-y-4">
-                <p className="text-lg font-medium text-gray-900 italic">
-                  “At Deckoid Solution, we don't just reply — we understand, plan, and deliver results.”
-                </p>
+                <p className="text-lg font-medium text-gray-900">
+                  “At Deckoid Solution,
+                  <br />
+                  we analyze, optimize, and accelerate growth with AI-driven strategies.                </p>
                 <div className="text-right">
                   <span className="text-sm font-bold text-accent-purple block">— Jigna Pipalia</span>
                   <span className="text-xs text-gray-500 block">Founder, Deckoid Solution</span>
@@ -605,16 +610,16 @@ export default function Home() {
                 <p className="text-sm text-gray-500 mb-8 text-left">
                   Send us a note and we will get back to you within 24 hours.
                 </p>
-                
+
                 <form onSubmit={handleContactSubmit} className="space-y-6 text-left">
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                     {/* Name */}
                     <div className="relative group">
                       <FaUser className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-500 group-focus-within:text-accent-purple transition-colors duration-300" />
-                      <input 
-                        type="text" 
+                      <input
+                        type="text"
                         id="name"
-                        placeholder="Your Name" 
+                        placeholder="Your Name"
                         required
                         className="w-full glass-card border border-gray-200 rounded-xl py-3.5 pl-12 pr-4 text-sm text-gray-900 focus:outline-none focus:border-accent-purple focus:ring-1 focus:ring-accent-purple/30 transition-all duration-300"
                       />
@@ -622,10 +627,10 @@ export default function Home() {
                     {/* Email */}
                     <div className="relative group">
                       <FaEnvelope className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-500 group-focus-within:text-accent-purple transition-colors duration-300" />
-                      <input 
-                        type="email" 
+                      <input
+                        type="email"
                         id="email"
-                        placeholder="Your Email" 
+                        placeholder="Your Email"
                         required
                         className="w-full glass-card border border-gray-200 rounded-xl py-3.5 pl-12 pr-4 text-sm text-gray-900 focus:outline-none focus:border-accent-purple focus:ring-1 focus:ring-accent-purple/30 transition-all duration-300"
                       />
@@ -635,10 +640,10 @@ export default function Home() {
                   {/* Subject */}
                   <div className="relative group">
                     <FaStickyNote className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-500 group-focus-within:text-accent-purple transition-colors duration-300" />
-                    <input 
-                      type="text" 
+                    <input
+                      type="text"
                       id="subject"
-                      placeholder="Subject" 
+                      placeholder="Subject"
                       required
                       className="w-full glass-card border border-gray-200 rounded-xl py-3.5 pl-12 pr-4 text-sm text-gray-900 focus:outline-none focus:border-accent-purple focus:ring-1 focus:ring-accent-purple/30 transition-all duration-300"
                     />
@@ -646,9 +651,9 @@ export default function Home() {
 
                   {/* Message */}
                   <div className="relative group">
-                    <textarea 
+                    <textarea
                       id="message"
-                      placeholder="Write your message details..." 
+                      placeholder="Write your message details..."
                       rows="4"
                       required
                       className="w-full glass-card border border-gray-200 rounded-xl py-3.5 px-4 text-sm text-gray-900 focus:outline-none focus:border-accent-purple focus:ring-1 focus:ring-accent-purple/30 transition-all duration-300 resize-none"
@@ -657,8 +662,8 @@ export default function Home() {
 
                   {/* Submit Button */}
                   <div>
-                    <button 
-                      type="submit" 
+                    <button
+                      type="submit"
                       className="w-full flex items-center justify-center gap-2 py-4 text-base font-bold text-gray-900 bg-indigo-600 rounded-xl shadow-[0_4px_20px_rgba(79,70,229,0.3)] transition-all duration-300 hover:bg-indigo-700 hover:shadow-[0_4px_25px_rgba(79,70,229,0.5)] active:scale-98"
                     >
                       <FaLocationArrow className="text-sm" />

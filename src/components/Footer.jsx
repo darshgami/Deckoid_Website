@@ -4,11 +4,6 @@ import { FaTwitter, FaFacebookF, FaInstagram, FaLinkedinIn, FaPhoneAlt, FaEnvelo
 export default function Footer() {
   const currentYear = new Date().getFullYear();
 
-  const handleNewsletterSubmit = (e) => {
-    e.preventDefault();
-    alert('Thank you for subscribing to our newsletter!');
-  };
-
   return (
     <footer className="bg-transparent text-gray-600 border-t border-gray-200 font-sans relative overflow-hidden">
       {/* Decorative subtle background gradient */}
@@ -32,7 +27,9 @@ export default function Footer() {
                 <span>+91 94262 25742</span>
               </a>
               <a
-                href="mailto:digitaldeckoid@gmail.com"
+                href="https://mail.google.com/mail/?view=cm&fs=1&to=digitaldeckoid@gmail.com&su=Inquiry%20for%20Deckoid%20Solution"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="flex items-center gap-3 text-gray-600 hover:text-accent-purple transition-colors duration-300 break-all"
               >
                 <FaEnvelope className="text-accent-purple shrink-0" />
@@ -62,7 +59,7 @@ export default function Footer() {
                 <FaInstagram size={16} />
               </a>
               <a
-                href="https://www.linkedin.com/in/jigna-pipalia-/"
+                href="https://www.linkedin.com/company/deckoid-solution-digital-marketing/posts/?feedView=all"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-10 h-10 rounded-full glass-card flex items-center justify-center text-gray-900 hover:bg-lavender hover:text-midnight hover:shadow-[0_4px_12px_rgba(182,149,231,0.4)] hover:-translate-y-1 transition-all duration-300"
@@ -80,22 +77,23 @@ export default function Footer() {
             </h4>
             <ul className="space-y-2 pt-2">
               {[
-                'Social Media Management',
-                'Search Engine Optimization',
-                'Graphic Design',
-                'Website Design & Development',
-                'Ai Video Editing',
-                'Facebook Ads',
-                'Google Ads',
-                'Lead Generation',
-                'Customized ERP Software'
+                { name: 'Social Media Management', id: 'social' },
+                { name: 'Search Engine Optimization', id: 'google' },
+                { name: 'Graphic Design', id: 'graphics' },
+                { name: 'Website Design & Development', id: 'web' },
+                { name: 'Ai Video Editing', id: 'videos' },
+                { name: 'Facebook Ads', id: 'ads' },
+                { name: 'Google Ads', id: 'google' },
+                { name: 'Lead Generation', id: 'ads' },
+                { name: 'Customized ERP Software', id: 'erp' }
               ].map((service) => (
-                <li key={service}>
+                <li key={service.name}>
                   <Link
                     to="/services"
+                    state={{ selectedService: service.id }}
                     className="hover:text-accent-purple hover:pl-2 transition-all duration-300 block text-sm"
                   >
-                    {service}
+                    {service.name}
                   </Link>
                 </li>
               ))}
@@ -120,7 +118,12 @@ export default function Footer() {
               </li>
               <li>
                 <Link to="/services" className="hover:text-accent-purple hover:pl-2 transition-all duration-300 block text-sm">
-                  Services & Portfolio
+                  Services
+                </Link>
+              </li>
+              <li>
+                <Link to="/portfolio" className="hover:text-accent-purple hover:pl-2 transition-all duration-300 block text-sm">
+                  Portfolio
                 </Link>
               </li>
               <li>
@@ -131,35 +134,46 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Newsletter Form */}
-          <div className="space-y-4">
-            <h4 className="text-gray-900 text-lg font-bold tracking-wide uppercase border-b-2 border-lavender/25 pb-2 inline-block">
-              Newsletter
-            </h4>
-            <p className="text-sm text-gray-500 leading-relaxed pt-2">
-              Subscribe to stay updated with our latest insights, case studies, and digital marketing trends.
-            </p>
-            <form onSubmit={handleNewsletterSubmit} className="relative mt-4">
-              <input
-                type="email"
-                placeholder="Your email address"
-                required
-                className="w-full glass-card border border-gray-200 rounded-xl py-3.5 pl-4 pr-12 text-sm text-gray-900 placeholder-white/40 focus:outline-none focus:border-accent-purple focus:ring-1 focus:ring-accent-purple/30 transition-all duration-300"
-              />
-              <button
-                type="submit"
-                className="absolute top-1/2 right-2 -translate-y-1/2 w-9 h-9 rounded-lg bg-lavender text-midnight flex items-center justify-center hover:bg-white hover:text-accent-purple hover:shadow-lg transition-all duration-300"
-                aria-label="Subscribe"
-              >
-                <FaPaperPlane size={14} />
-              </button>
-            </form>
+          {/* Location / Address */}
+          <div className="space-y-4 flex flex-col h-full">
+            <div>
+              <h4 className="text-gray-900 text-lg font-bold tracking-wide uppercase border-b-2 border-lavender/25 pb-2 inline-block">
+                Our Location
+              </h4>
+              <div className="pt-2 text-sm text-gray-500 leading-relaxed space-y-2">
+                <p className="font-semibold text-gray-900">Deckoid Solution</p>
+                <p>6, Bhaktinagar Station Plot, Bhakti Nagar, Rajkot, Gujarat 360002</p>
+                <a 
+                  href="https://maps.app.goo.gl/GgkAf4b9vhiCGvHa8" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1.5 mt-2 text-accent-purple hover:text-midnight transition-colors duration-300 font-bold"
+                >
+                  View on Google Maps
+                  <span className="text-[10px]">&rarr;</span>
+                </a>
+              </div>
+            </div>
+            
+            {/* Embedded Map */}
+            <div className="mt-4 w-full h-40 rounded-xl overflow-hidden glass-card border border-gray-200">
+              <iframe 
+                src="https://maps.google.com/maps?q=Deckoid+Solution,+6,+Bhaktinagar+Station+Plot,+Rajkot,+Gujarat&t=&z=15&ie=UTF8&iwloc=&output=embed" 
+                width="100%" 
+                height="100%" 
+                style={{ border: 0 }}
+                allowFullScreen="" 
+                loading="lazy" 
+                referrerPolicy="no-referrer-when-downgrade"
+                title="Deckoid Solution Location Map"
+              ></iframe>
+            </div>
           </div>
 
         </div>
 
         {/* Divider */}
-        <div className="border-t border-gray-200 mt-16 pt-8 flex flex-col md:flex-row items-center justify-between text-xs text-gray-500">
+        <div className="mt-5 pt-8 flex flex-col md:flex-row items-center justify-between text-xs text-gray-500">
           <p className="text-center md:text-left select-none">
             &copy; {currentYear} <span className="text-gray-900 font-semibold">Deckoid Solution</span>. All Rights Reserved.
           </p>

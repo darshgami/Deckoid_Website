@@ -25,7 +25,7 @@ export default function Navbar() {
   }, [location]);
 
   return (
-    <header className="fixed top-0 left-0 w-full z-50 transition-all duration-300 bg-[#d4c7ff61] backdrop-blur-md border-b border-gray-200/40 py-4 shadow-[0_2px_15px_rgba(124,92,255,0.05)]">
+    <header className="fixed top-0 left-0 w-full h-23 z-50 transition-all duration-300 bg-[#d4c7ff61] backdrop-blur-md border-b border-gray-200/40 py-4 shadow-[0_2px_15px_rgba(124,92,255,0.05)]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-12">
           
