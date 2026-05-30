@@ -58,7 +58,7 @@ export default function Navbar() {
               className={({ isActive }) => `text-sm tracking-wide transition-colors duration-300 ${
                 isActive 
                   ? 'text-gray-200 font-bold' 
-                  : 'text-gray-200 hover:text-gray-900 font-medium'
+                  : 'text-gray-200 hover:text-[#b895e5] font-medium'
               }`}
             >
               {item.name}
@@ -72,7 +72,7 @@ export default function Navbar() {
             href="https://api.whatsapp.com/send/?phone=919586536724" 
             target="_blank" 
             rel="noopener noreferrer" 
-            className="group flex items-center gap-2 px-6 py-2.5 text-sm font-semibold text-white bg-[#7C5CFF] rounded-full shadow-[0_4px_15px_rgba(124,92,255,0.3)] transition-all duration-300 hover:bg-[#6A4BE6] hover:shadow-[0_6px_20px_rgba(124,92,255,0.4)] hover:-translate-y-0.5"
+            className="group flex items-center gap-2 px-6 py-2.5 text-sm font-semibold text-white bg-[#8f42da] rounded-full shadow-[0_4px_15px_rgba(124,92,255,0.3)] transition-all duration-300 hover:bg-[#6A4BE6] hover:shadow-[0_6px_20px_rgba(124,92,255,0.4)] hover:-translate-y-0.5"
           >
             Let's Talk
             <FaArrowRight className="text-xs transition-transform duration-300 group-hover:translate-x-1" />
@@ -110,7 +110,7 @@ export default function Navbar() {
               className={({ isActive }) => `block px-5 py-3.5 rounded-xl text-base font-medium transition-all ${
                 isActive 
                   ? 'bg-indigo-50 text-indigo-700' 
-                  : 'text-gray-600 hover:text-gray-900 hover:bg-gray-50'
+                  : 'text-gray-600 hover:text-[#b895e5] hover:bg-gray-50'
               }`}
             >
               {item.name}

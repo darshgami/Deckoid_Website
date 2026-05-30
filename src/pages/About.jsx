@@ -203,66 +203,67 @@ export default function About() {
       </section>
 
       {/* 5. SWOT Circles and Counters Section */}
-      <section className="bg-gradient-to-r from-midnight via-[#150a2e] to-midnight py-24 border-t border-gray-200 overflow-hidden">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="about-metrics-section relative isolate py-24 border-t border-white/10 overflow-hidden">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(143,66,218,0.22),transparent_35%),radial-gradient(circle_at_bottom_right,rgba(255,255,255,0.08),transparent_30%)] pointer-events-none" />
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           
           <div className="text-center max-w-3xl mx-auto mb-20 space-y-4 reveal-element">
-            <span className="text-xs font-bold text-accent-purple tracking-widest uppercase">
+            <span className="about-metrics-kicker text-xs font-bold tracking-widest uppercase">
               By The Numbers
             </span>
-            <h2 className="text-3xl sm:text-4xl font-black text-gray-900">
+            <h2 className="about-metrics-title text-3xl sm:text-4xl font-black font-display">
               Metrics That Define Our Strengths
             </h2>
-            <div className="w-16 h-1 bg-gradient-to-r from-lavender to-indigo-600 rounded-full mx-auto" />
-            <p className="text-gray-500 text-sm sm:text-base">
+            <div className="about-metrics-divider w-20 h-1 rounded-full mx-auto" />
+            <p className="about-metrics-copy text-sm sm:text-base max-w-2xl mx-auto">
               A brief look at the numbers that define our achievements, consistency, and standard of execution.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12 sm:gap-8 justify-center reveal-element-scale">
+          <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-6 lg:gap-8 justify-center reveal-element-scale">
             
             {/* Counter Circle 1 */}
-            <div className="flex flex-col items-center">
-              <div className="swot-circle bg-transparent shadow-2xl relative mb-6">
-                <div className="text-3xl font-extrabold text-gray-900">
-                  <StatCounter target={100} title="" suffix="+" duration={1200} />
-                </div>
+            <div className="about-metric-card group relative overflow-hidden rounded-[28px] p-7 transition-all duration-300 hover:-translate-y-1">
+              <div className="about-metric-topline absolute inset-x-0 top-0 h-px opacity-90" />
+              <div className="about-metric-glow absolute -right-10 -top-10 h-32 w-32 rounded-full blur-3xl opacity-80 group-hover:opacity-100 transition-opacity duration-300" />
+              <div className="relative flex flex-col items-center text-center gap-3">
+                <StatCounter target={100} title="" suffix="+" duration={1200} className="about-metric-value text-center" />
+                <span className="about-metric-label text-lg font-semibold">Happy Users</span>
+                <span className="about-metric-subtitle text-sm">Trusted strategic relationships</span>
               </div>
-              <span className="text-gray-900 font-bold text-lg">Happy Users</span>
-              <span className="text-xs text-gray-500">Trusted Strategic Relations</span>
             </div>
 
             {/* Counter Circle 2 */}
-            <div className="flex flex-col items-center">
-              <div className="swot-circle bg-transparent shadow-2xl relative mb-6">
-                <div className="text-3xl font-extrabold text-gray-900">
-                  <StatCounter target={500} title="" suffix="+" duration={1400} />
-                </div>
+            <div className="about-metric-card group relative overflow-hidden rounded-[28px] p-7 transition-all duration-300 hover:-translate-y-1">
+              <div className="about-metric-topline absolute inset-x-0 top-0 h-px opacity-90" />
+              <div className="about-metric-glow absolute -right-10 -top-10 h-32 w-32 rounded-full blur-3xl opacity-80 group-hover:opacity-100 transition-opacity duration-300" />
+              <div className="relative flex flex-col items-center text-center gap-3">
+                <StatCounter target={500} title="" suffix="+" duration={1400} className="about-metric-value text-center" />
+                <span className="about-metric-label text-lg font-semibold">Total Orders</span>
+                <span className="about-metric-subtitle text-sm">Successful projects finished</span>
               </div>
-              <span className="text-gray-900 font-bold text-lg">Total Orders</span>
-              <span className="text-xs text-gray-500">Successful Projects Finished</span>
             </div>
 
             {/* Counter Circle 3 */}
-            <div className="flex flex-col items-center">
-              <div className="swot-circle bg-transparent shadow-2xl relative mb-6">
-                <div className="text-3xl font-extrabold text-gray-900">
-                  <StatCounter target={1500} title="" suffix="+" duration={1600} />
-                </div>
+            <div className="about-metric-card group relative overflow-hidden rounded-[28px] p-7 transition-all duration-300 hover:-translate-y-1">
+              <div className="about-metric-topline absolute inset-x-0 top-0 h-px opacity-90" />
+              <div className="about-metric-glow absolute -right-10 -top-10 h-32 w-32 rounded-full blur-3xl opacity-80 group-hover:opacity-100 transition-opacity duration-300" />
+              <div className="relative flex flex-col items-center text-center gap-3">
+                <StatCounter target={1500} title="" suffix="+" duration={1600} className="about-metric-value text-center" />
+                <span className="about-metric-label text-lg font-semibold">Successful Delivery</span>
+                <span className="about-metric-subtitle text-sm">Optimized assets rendered</span>
               </div>
-              <span className="text-gray-900 font-bold text-lg">Successful Delivery</span>
-              <span className="text-xs text-gray-500">Optimized Assets Rendered</span>
             </div>
 
             {/* Counter Circle 4 */}
-            <div className="flex flex-col items-center">
-              <div className="swot-circle bg-transparent shadow-2xl relative mb-6">
-                <div className="text-3xl font-extrabold text-gray-900">
-                  <StatCounter target={80000} title="" suffix="+" duration={1800} />
-                </div>
+            <div className="about-metric-card group relative overflow-hidden rounded-[28px] p-7 transition-all duration-300 hover:-translate-y-1">
+              <div className="about-metric-topline absolute inset-x-0 top-0 h-px opacity-90" />
+              <div className="about-metric-glow absolute -right-10 -top-10 h-32 w-32 rounded-full blur-3xl opacity-80 group-hover:opacity-100 transition-opacity duration-300" />
+              <div className="relative flex flex-col items-center text-center gap-3">
+                <StatCounter target={80000} title="" suffix="+" duration={1800} className="about-metric-value text-center" />
+                <span className="about-metric-label text-lg font-semibold">Transactions</span>
+                <span className="about-metric-subtitle text-sm">Marketing operations handled</span>
               </div>
-              <span className="text-gray-900 font-bold text-lg">Transactions</span>
-              <span className="text-xs text-gray-500">Marketing Operations Handled</span>
             </div>
 
           </div>

@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 
-export default function StatCounter({ target, title, prefix = '', suffix = '+', duration = 1500 }) {
+export default function StatCounter({ target, title, prefix = '', suffix = '+', duration = 1500, className = '' }) {
   const [count, setCount] = useState(0);
   const [hasStarted, setHasStarted] = useState(false);
   const containerRef = useRef(null);
@@ -55,16 +55,15 @@ export default function StatCounter({ target, title, prefix = '', suffix = '+', 
   }, [hasStarted, target, duration]);
 
   return (
-    <div 
-      ref={containerRef} 
-      className="flex flex-col items-center justify-center p-6 bg-transparent/40 backdrop-blur-md border border-gray-200 rounded-2xl w-full transition-all duration-300 hover:border-lavender/30 hover:shadow-[0_10px_30px_rgba(182,149,231,0.1)]"
-    >
-      <div className="text-4xl lg:text-5xl font-extrabold text-gray-900 mb-2 font-display select-none">
+    <div ref={containerRef} className={className}>
+      <div className="text-4xl lg:text-5xl font-black text-white mb-2 font-display tracking-tight select-none">
         {prefix}{count.toLocaleString()}{suffix}
       </div>
-      <div className="text-sm font-medium text-accent-purple tracking-wider uppercase">
-        {title}
-      </div>
+      {title ? (
+        <div className="text-sm font-medium text-[#8f42da] tracking-wider uppercase">
+          {title}
+        </div>
+      ) : null}
     </div>
   );
 }

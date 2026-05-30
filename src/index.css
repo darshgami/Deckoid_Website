@@ -28,6 +28,7 @@
   --color-indigo-600: #7C5CFF;
   --color-indigo-700: #8B5CF6;
   --color-indigo-400: #9F85FF;
+  --color-midnight: #0b0a25;
 }
 
 /* Custom Scrollbar */
@@ -97,11 +98,104 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Navbar */
 header.fixed {
-  background: rgba(125, 92, 255, 0.448) !important;
+  background: rgb(11 10 37) !important;
+  background: linear-gradient(90deg, rgba(11,10,37,0.8) 0%, rgba(11,10,37,0.6) 100%) !important;
   backdrop-filter: blur(16px) !important;
   -webkit-backdrop-filter: blur(16px) !important;
-  border-bottom: 1px solid rgba(229, 231, 235, 0.4) !important;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.02) !important;
+}
+
+/* About Metrics */
+.about-metrics-section {
+  background: linear-gradient(180deg, #0b0a25 0%, #120a2a 50%, #0b0a25 100%) !important;
+}
+
+.about-metrics-kicker {
+  color: #8f42da !important;
+}
+
+.about-metrics-title {
+  color: #ffffff !important;
+  text-shadow: 0 6px 24px rgba(0, 0, 0, 0.28);
+}
+
+.about-metrics-divider {
+  background: linear-gradient(90deg, transparent 0%, #8f42da 50%, transparent 100%) !important;
+}
+
+.about-metrics-copy {
+  color: rgba(255, 255, 255, 0.74) !important;
+}
+
+.about-metric-card {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.09) 0%, rgba(255, 255, 255, 0.05) 100%) !important;
+  border: 1px solid rgba(255, 255, 255, 0.12) !important;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.26) !important;
+  backdrop-filter: blur(18px) !important;
+  -webkit-backdrop-filter: blur(18px) !important;
+}
+
+.about-metric-card:hover {
+  border-color: rgba(143, 66, 218, 0.38) !important;
+  box-shadow: 0 30px 70px rgba(0, 0, 0, 0.34) !important;
+}
+
+.about-metric-topline {
+  background: linear-gradient(90deg, transparent 0%, rgba(143, 66, 218, 0.95) 50%, transparent 100%) !important;
+}
+
+.about-metric-glow {
+  background: rgba(143, 66, 218, 0.28) !important;
+}
+
+.about-metric-value,
+.about-metric-value .text-4xl,
+.about-metric-value .text-5xl {
+  color: #ffffff !important;
+}
+
+.about-metric-label {
+  color: #ffffff !important;
+}
+
+.about-metric-subtitle {
+  color: rgba(255, 255, 255, 0.66) !important;
+}
+
+/* Footer */
+footer,
+footer h1,
+footer h2,
+footer h3,
+footer h4,
+footer h5,
+footer h6,
+footer p,
+footer span,
+footer li,
+footer a {
+  color: #FFFFFF !important;
+}
+
+footer a:hover {
+  color: #b895e5 !important;
+}
+
+footer .glass-card,
+footer .bg-white\/5,
+footer .bg-white\/10 {
+  background: rgba(255, 255, 255, 0.06) !important;
+  backdrop-filter: blur(10px) !important;
+  -webkit-backdrop-filter: blur(10px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  box-shadow: none !important;
+}
+
+footer .glass-card:hover,
+footer .bg-white\/5:hover,
+footer .bg-white\/10:hover {
+  border-color: rgba(255, 255, 255, 0.16) !important;
+  box-shadow: none !important;
 }
 
 /* Navbar Active Links & Accent Text */
