@@ -1,299 +1,406 @@
 import { Link } from 'react-router-dom';
-import { FaBullseye, FaRegEye, FaRegHandshake, FaAward, FaCalendarAlt, FaCheckCircle, FaChevronRight } from 'react-icons/fa';
-import founderImg from '../assets/owner.JPG';
-import storyImg from '../assets/ourstory.jpg';
+import { Helmet } from 'react-helmet-async';
+import { FaChevronRight } from 'react-icons/fa';
 import StatCounter from '../components/StatCounter';
+import founderImg from '../assets/owner.JPG';
 
 export default function About() {
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Who is the founder of Deckoid Solution?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Jigna Pipalia is the founder of Deckoid Solution, a RITA award-winning digital marketing agency based in Rajkot, Gujarat. She founded the agency in 2018 and has personally built and grown it over 8+ years, serving 1,000+ clients across India."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Who founded Deckoid Solution and where is it based?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Deckoid Solution was founded by Jigna Pipalia and is headquartered in Rajkot, Gujarat, India. The agency was built to help businesses across Saurashtra and India grow online through strategic branding, SEO, web design, social media management, and Facebook Ads."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What award has Deckoid Solution won?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Deckoid Solution was honored at the Saurashtra IT-ITeS Excellence Awards 2024, presented by the Rajkot Information Technology Association (RITA). The award recognised Deckoid’s outstanding achievements in IT and Digital Marketing, making it one of the most recognised digital agencies in Rajkot and Saurashtra."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Does Deckoid Solution use AI in their work?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. Deckoid Solution integrates AI tools across its full workflow — including AI-assisted keyword research and content analysis for SEO, AI-powered audience targeting for Facebook Ads, AI-enhanced production for graphic design and video editing, and AI-powered analytics for clearer client reporting. This makes campaigns faster, more targeted, and more cost-effective."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Does Deckoid Solution work with businesses outside Rajkot?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. While Deckoid Solution is based in Rajkot, Gujarat, the agency works with businesses across India. Services are tailored to each client's target market — whether local, regional within Gujarat, or national across India."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What results has Deckoid Solution delivered for its clients?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Deckoid Solution has delivered measurable results including a 120% average increase in website traffic, 2x lead growth through Facebook Ads, and an average 200% return on investment for clients across multiple industries in India."
+        }
+      }
+    ]
+  };
+
+  const organizationSchema = {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Deckoid Solution",
+    "url": "https://www.deckoid.com/",
+    "logo": "https://www.deckoid.com/logo.png",
+    "sameAs": [
+      "https://www.facebook.com/deckoidsolution",
+      "https://www.instagram.com/deckoid_solution/",
+      "https://www.linkedin.com/company/deckoid-solution-digital-marketing/"
+    ]
+  };
+
+  const localBusinessSchema = {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "Deckoid Solution",
+    "image": "https://www.deckoid.com/office.jpg",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "6, Bhaktinagar Station Plot, Bhakti Nagar",
+      "addressLocality": "Rajkot",
+      "addressRegion": "Gujarat",
+      "postalCode": "360002",
+      "addressCountry": "IN"
+    },
+    "telephone": "+91 94262 25742",
+    "url": "https://www.deckoid.com/"
+  };
+
+  const personSchema = {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Jigna Pipalia",
+    "jobTitle": "Founder & Executive Director",
+    "worksFor": {
+      "@type": "Organization",
+      "name": "Deckoid Solution"
+    },
+    "sameAs": "https://www.linkedin.com/in/jigna-pipalia/"
+  };
+
+  const awardSchema = {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Deckoid Solution",
+    "award": "Saurashtra IT-ITeS Excellence Award 2024"
+  };
+
   return (
     <div className="space-y-0">
-      
-      {/* 1. Header Banner */}
-      {/* <section className="relative bg-transparent py-20 border-b border-gray-200 overflow-hidden">
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-lavender/5 via-transparent to-transparent opacity-60" />
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-left">
-          <div className="max-w-3xl space-y-4 reveal-element">
-            <span className="text-xs font-bold text-accent-purple tracking-widest uppercase">
-              Our Journey
-            </span>
-            <h1 className="text-4xl sm:text-5xl font-black text-gray-900 leading-tight font-display">
-              Elevating Digital Excellence
+      <Helmet>
+        <title>About Deckoid Solution | Award-Winning AI-Powered Digital Marketing Agency in Rajkot</title>
+        <meta name="description" content="Learn about Deckoid Solution, Rajkot's award-winning AI-powered digital marketing agency. Meet founder Jigna Pipalia, explore our mission, values, AI-driven approach, and proven client results." />
+        <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>
+        <script type="application/ld+json">{JSON.stringify(organizationSchema)}</script>
+        <script type="application/ld+json">{JSON.stringify(localBusinessSchema)}</script>
+        <script type="application/ld+json">{JSON.stringify(personSchema)}</script>
+        <script type="application/ld+json">{JSON.stringify(awardSchema)}</script>
+      </Helmet>
+
+      {/* Header - Balanced two-column hero */}
+      <section className="relative bg-transparent  pt-28 sm:pt-32 lg:pt-36 pb-12 md:pb-16 lg:pb-20 overflow-hidden">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="reveal-element text-left">
+              <h1 className="font-black text-gray-900 font-display w-full" style={{ fontSize: 'clamp(2.25rem, 5vw, 4.5rem)', lineHeight: 1.02 }}>
+              We Are <span className="text-[#8b5cf6]">Deckoid Solution</span> — Rajkot's AI-Powered Digital Marketing Agency
             </h1>
-            <div className="w-16 h-1 bg-gradient-to-r from-lavender to-indigo-600 rounded-full" />
-            <p className="text-gray-600 text-sm sm:text-base leading-relaxed max-w-2xl">
-              Learn about the core values, history, and people behind Deckoid Solutions—helping brands establish strong, conversion-focused digital identities.
+            <div className="w-16 h-1 bg-gradient-to-r from-lavender to-indigo-600 rounded-full my-5" />
+            <p className="text-gray-600 text-sm md:text-base max-w-3xl" style={{ lineHeight: 1.85 }}>
+              We started with one belief: that every business in Rajkot, Gujarat, and across India deserves marketing that actually works. Today, Deckoid Solution is a RITA award-winning digital marketing agency combining strategic thinking, creative design, and AI-powered tools to help businesses grow online — consistently, measurably, and with clarity.
             </p>
           </div>
         </div>
-      </section> */}
+        </section>
 
-      {/* 2. Parallax Story Block */}
+      {/* Our Story */}
       <section className="bg-transparent py-24 relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
-            
-            {/* Story text */}
             <div className="lg:col-span-7 text-left space-y-6 reveal-element-left">
-              <span className="text-xs font-bold text-accent-purple tracking-widest uppercase">
-                Our Story
-              </span>
-              <h2 className="text-3xl sm:text-4xl font-extrabold text-gray-900">
-                How We Started & Where We Stand
-              </h2>
+              <h2 className="text-3xl sm:text-4xl font-extrabold text-gray-900">Our Story — From Rajkot to Businesses Across India</h2>
               <div className="w-16 h-1 bg-gradient-to-r from-lavender to-indigo-600 rounded-full" />
-              
               <div className="space-y-4 text-sm sm:text-base text-gray-600 leading-relaxed font-normal">
                 <p>
-                  Founded with a vision to simplify complex online growth, **Deckoid Solutions** has grown from a specialized design studio into a full-scale digital consulting agency. We noticed that many growing brands struggled to bridge the gap between creative design, modern web tech, and performance-based marketing. 
+                  Deckoid Solution was founded in Rajkot, Gujarat, with a clear purpose: to bridge the gap between great businesses and the digital strategies they need to reach their full potential. We saw local businesses struggling to make sense of SEO, social media, and digital advertising — spending money without a clear strategy or measurable returns.
                 </p>
                 <p>
-                  Our solution was to build an all-in-one growth partner: a team that understands how to write optimized custom web apps, create beautiful social media visuals, execute high-conversion marketing campaigns, and keep layouts fast and clean.
+                  So we built an agency that does things differently. We start with your goals. We build strategies that fit your market — whether you’re targeting customers in Saurashtra, Gujarat, or anywhere across India. And we stay accountable to results, not just deliverables.
                 </p>
                 <p>
-                  Today, we support organizations across industries, focusing on measurable business metrics, absolute transparency, and long-term brand equity.
+                  In 2024, that commitment was recognised at the Saurashtra IT-ITeS Excellence Awards, where Deckoid Solution received the award for outstanding achievement in IT and Digital Marketing — making us one of the most recognised digital agencies in Rajkot.
                 </p>
               </div>
             </div>
 
-            {/* Story image */}
             <div className="lg:col-span-5 reveal-element-right">
               <div className="relative group">
-                <div className="absolute -inset-2 bg-gradient-to-r from-lavender/30 to-indigo-500/30 rounded-3xl blur-xl opacity-50 group-hover:opacity-75 transition duration-500" />
                 <div className="relative p-2 glass-card border border-gray-200 rounded-3xl overflow-hidden shadow-2xl backdrop-blur-md aspect-4/3">
-                  <img 
-                    src={storyImg} 
-                    alt="Deckoid Solutions Office Collaborative Space" 
-                    className="w-full h-full object-cover rounded-2xl transition-transform duration-700 group-hover:scale-103"
-                    loading="lazy"
-                  />
+                  <img src={founderImg} alt="Deckoid Solution Story" className="w-full h-full object-cover rounded-2xl" loading="lazy" />
                 </div>
               </div>
             </div>
-
           </div>
         </div>
       </section>
 
-      {/* 3. Founder Profile Section */}
-      <section className="bg-transparent py-24 border-y border-gray-200 relative overflow-hidden">
-        <div className="absolute top-0 right-0 w-80 h-80 bg-lavender/5 rounded-full filter blur-3xl pointer-events-none" />
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
-            
-            {/* Left Column: Founder Photo */}
-            <div className="lg:col-span-5 flex justify-center reveal-element-left">
-              <div className="relative group max-w-sm w-full">
-                <div className="absolute -inset-1 bg-gradient-to-r from-lavender to-indigo-600 rounded-3xl blur-lg opacity-40 group-hover:opacity-60 transition duration-500" />
-                <div className="relative p-2 glass-card border border-gray-200 rounded-3xl overflow-hidden shadow-2xl backdrop-blur-md">
-                  <img 
-                    src={founderImg} 
-                    alt="Jigna Pipalia - Founder and Director of Deckoid Solution" 
-                    className="w-full h-auto object-cover rounded-2xl shadow-lg transition-transform duration-500 group-hover:scale-101"
-                    loading="lazy"
-                  />
-                  <div className="p-4 bg-transparent border-t border-gray-200 mt-2 rounded-xl text-center">
-                    <span className="text-gray-900 font-bold text-lg block">Jigna Pipalia</span>
-                    <span className="text-xs text-accent-purple font-semibold block uppercase tracking-wider">Founder & Executive Director</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Right Column: Profile Text */}
-            <div className="lg:col-span-7 text-left space-y-6 reveal-element-right">
-              <div className="space-y-2">
-                <span className="text-xs font-bold text-accent-purple tracking-widest uppercase">
-                  Executive Leadership
-                </span>
-                <h2 className="text-3xl sm:text-4xl font-extrabold text-gray-900">
-                  Meet Our Founder
-                </h2>
-                <div className="w-16 h-1 bg-gradient-to-r from-lavender to-indigo-600 rounded-full" />
-              </div>
-
-              <div className="space-y-4 text-gray-600 text-sm sm:text-base leading-relaxed">
-                <p>
-                  As the driving force behind **Deckoid Solution**, **Jigna Pipalia** blends years of professional technical training with a passionate, result-oriented approach to digital brand strategy. With a strong background in **Information Technology and Graphic Architecture**, she has guided hundreds of enterprises through full-scale digital modernization.
-                </p>
-                <p>
-                  Under her leadership, Deckoid Solution has grown to be recognized as one of the most reliable and creative digital firms in Saurashtra. Her approach focuses on understanding client business structures and translating them into user experiences that achieve actual conversions.
-                </p>
-                <p>
-                  Beyond consulting, she is actively dedicated to mentoring young creative professionals, keeping our standards of design, development, and customer satisfaction high.
-                </p>
-              </div>
-
-              <div className="flex flex-wrap gap-4 pt-4 border-t border-gray-200 text-xs sm:text-sm text-gray-600">
-                <div className="flex items-center gap-2">
-                  <FaCheckCircle className="text-accent-purple shrink-0" />
-                  <span>IT Consulting Expert</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <FaCheckCircle className="text-accent-purple shrink-0" />
-                  <span>Award-Winning Director</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <FaCheckCircle className="text-accent-purple shrink-0" />
-                  <span>Strategic Brand Architect</span>
-                </div>
-              </div>
-            </div>
-
-          </div>
-        </div>
-      </section>
-
-      {/* 4. Mission, Vision, and Values Section */}
+      {/* Meet the Founder */}
       <section className="bg-transparent py-24 relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          
-          <div className="text-center max-w-3xl mx-auto mb-20 space-y-4 reveal-element">
-            <span className="text-xs font-bold text-accent-purple tracking-widest uppercase">
-              Our Compass
-            </span>
-            <h2 className="text-3xl sm:text-4xl font-black text-gray-900">
-              Mission, Vision & Core Values
-            </h2>
-            <div className="w-16 h-1 bg-gradient-to-r from-lavender to-indigo-600 rounded-full mx-auto" />
-          </div>
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
+            <div className="lg:col-span-5 flex justify-center reveal-element-left">
+              <div className="w-full max-w-[420px] mx-auto lg:mx-0">
+                <div
+                  className="transform transition-all duration-400"
+                  style={{
+                    background: 'rgba(255,255,255,0.75)',
+                    backdropFilter: 'blur(20px)',
+                    WebkitBackdropFilter: 'blur(20px)',
+                    border: '1px solid rgba(139,92,246,0.15)',
+                    borderRadius: '32px',
+                    boxShadow: '0 20px 60px rgba(13,11,39,0.20)'
+                  }}
+                >
+                  <div className="p-8">
+                    <div className="overflow-hidden rounded-[24px] shadow-[0_10px_30px_rgba(13,11,39,0.15)]">
+                      <img
+                        src={founderImg}
+                        alt="Jigna Pipalia - Founder"
+                        className="w-full h-auto object-cover aspect-[4/5]"
+                        loading="lazy"
+                      />
+                    </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            
-            {/* Mission */}
-            <div className="group text-left p-8 glass-card border border-gray-200 rounded-3xl hover:border-lavender/30 transition-all duration-300 hover:-translate-y-1.5 reveal-element">
-              <div className="w-14 h-14 rounded-2xl bg-lavender/10 border border-lavender/25 flex items-center justify-center text-accent-purple text-3xl group-hover:bg-lavender group-hover:text-midnight transition-colors duration-300 mb-6">
-                <FaBullseye />
+                    {/* Name and designation removed per request; kept inside quote block */}
+
+                    <div
+                      className="mt-6 mx-auto"
+                      style={{
+                        background: 'rgba(139,92,246,0.08)',
+                        borderLeft: '4px solid #8b5cf6',
+                        borderRadius: '16px',
+                        padding: '20px',
+                        maxWidth: '100%'
+                      }}
+                    >
+                      <div className="text-[#0d0b27] font-bold" style={{ fontSize: '18px', lineHeight: 1.8 }}>
+                        "Every brand has a voice — my mission is to help it be heard."
+                      </div>
+                      <div className="mt-3 text-[#8b5cf6] font-bold text-right" style={{ fontSize: '15px' }}>— Jigna Pipalia, Founder</div>
+                    </div>
+                  </div>
+                </div>
+                {/* Hover effect wrapper to translate card */}
+                <style>{`.reveal-element-left > div > div:hover { transform: translateY(-8px); box-shadow: 0 30px 80px rgba(13,11,39,0.25); transition: all 0.4s ease; }`}</style>
               </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-4 group-hover:text-accent-purple transition-colors duration-300">
-                Our Mission
-              </h3>
-              <p className="text-sm text-gray-600 leading-relaxed">
-                To empower brands by building conversion-oriented custom code structures and visual strategies that eliminate online clutter, strengthen customer relationships, and drive measurable sales growth.
-              </p>
             </div>
-
-            {/* Vision */}
-            <div className="group text-left p-8 glass-card border border-gray-200 rounded-3xl hover:border-lavender/30 transition-all duration-300 hover:-translate-y-1.5 reveal-element" style={{ transitionDelay: '100ms' }}>
-              <div className="w-14 h-14 rounded-2xl bg-lavender/10 border border-lavender/25 flex items-center justify-center text-accent-purple text-3xl group-hover:bg-lavender group-hover:text-midnight transition-colors duration-300 mb-6">
-                <FaRegEye />
+            <div className="lg:col-span-7 text-left space-y-6 reveal-element-right">
+              <h2 className="text-3xl sm:text-4xl font-extrabold text-gray-900">Meet the Founder — The Woman Behind Deckoid Solution</h2>
+              <div className="w-16 h-1 bg-gradient-to-r from-lavender to-indigo-600 rounded-full" />
+              <div className="space-y-4 text-gray-600 text-sm sm:text-base leading-relaxed">
+                <p>
+                  Jigna Pipalia is the founder and sole driving force behind Deckoid Solution — one of Rajkot’s most recognised digital marketing agencies. For over 8 years, she has built, managed, and grown the agency entirely on her own, treating it with the same dedication and care she gives her family.
+                </p>
+                <p>
+                  A Computer Engineering graduate from Marwadi University and a proud self-learner, Jigna discovered her passion for marketing and internet strategy early in her career — and has never stopped deepening it. Today she is an AI Practitioner and Digital Marketing Strategist with hands-on expertise across SEO, Social Media Marketing, Google and Facebook Ads, Web & App Development, and Graphic Design.
+                </p>
+                <p>
+                  Since founding Deckoid Solution in April 2018, Jigna has personally served 1,000+ clients across industries, including coaching, manufacturing, real estate, fashion and jewellery, health and wellness, education, travel, and retail — helping each one grow their digital presence and generate measurable business results.
+                </p>
+                <p>
+                  Beyond her agency, Jigna is an active and valued member of both the IT Association Rajkot and the Patel Business Association — two communities where she contributes her expertise and builds meaningful connections across the Gujarat business ecosystem.
+                </p>
+                <p>
+                  What makes Jigna’s story particularly remarkable is that she has built all of this while raising two children — a testament to the resilience, focus, and quiet determination that define everything she does. Deckoid Solution is not just a business she runs — it is something she has grown, protected, and nurtured from the ground up, the same way she does everything she loves.
+                </p>
+                <p>
+                  Connect with Jigna on LinkedIn for insights on digital marketing, AI, and growing your business online in India.
+                </p>
               </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-4 group-hover:text-accent-purple transition-colors duration-300">
-                Our Vision
-              </h3>
-              <p className="text-sm text-gray-600 leading-relaxed">
-                To be recognized as a premier global digital design and growth partner, known for setting modern benchmarks in design quality, tech integration, and transparent results that elevate industry standards.
-              </p>
             </div>
-
-            {/* Core Values */}
-            <div className="group text-left p-8 glass-card border border-gray-200 rounded-3xl hover:border-lavender/30 transition-all duration-300 hover:-translate-y-1.5 reveal-element" style={{ transitionDelay: '200ms' }}>
-              <div className="w-14 h-14 rounded-2xl bg-lavender/10 border border-lavender/25 flex items-center justify-center text-accent-purple text-3xl group-hover:bg-lavender group-hover:text-midnight transition-colors duration-300 mb-6">
-                <FaRegHandshake />
-              </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-4 group-hover:text-accent-purple transition-colors duration-300">
-                Our Core Values
-              </h3>
-              <p className="text-sm text-gray-600 leading-relaxed">
-                We operate with absolute transparency, creative fearlessness, structural integrity, and an ongoing focus on helping our clients grow, ensuring our strategic relationships generate mutual value.
-              </p>
-            </div>
-
           </div>
         </div>
       </section>
 
-      {/* 5. SWOT Circles and Counters Section */}
+      {/* Mission & Values as Cards */}
+      <section className="bg-transparent py-24 relative overflow-hidden">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center max-w-3xl mx-auto mb-12 space-y-4 reveal-element">
+            <h2 className="text-3xl sm:text-4xl font-black text-gray-900">What We Stand For — Our Mission & Values</h2>
+            <p className="text-sm text-gray-600">We don’t just run campaigns. We grow businesses.</p>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
+            <div className="p-6 glass-card border border-gray-200 rounded-3xl">
+              <h3 className="font-bold text-gray-900 mb-2">Results First</h3>
+              <p className="text-sm text-gray-600">Every strategy we build is measured against real business outcomes — traffic, leads, and revenue. Vanity metrics don’t count.</p>
+            </div>
+            <div className="p-6 glass-card border border-gray-200 rounded-3xl">
+              <h3 className="font-bold text-gray-900 mb-2">Full Transparency</h3>
+              <p className="text-sm text-gray-600">You’ll always know exactly what we’re doing, why we’re doing it, and what results it’s delivering — no hidden fees, no vague reports.</p>
+            </div>
+            <div className="p-6 glass-card border border-gray-200 rounded-3xl">
+              <h3 className="font-bold text-gray-900 mb-2">AI-Enhanced Work</h3>
+              <p className="text-sm text-gray-600">We use AI tools across research, targeting, design, and reporting to deliver faster, smarter, and more cost-effective outcomes for every client.</p>
+            </div>
+            <div className="p-6 glass-card border border-gray-200 rounded-3xl">
+              <h3 className="font-bold text-gray-900 mb-2">Creative Integrity</h3>
+              <p className="text-sm text-gray-600">Great marketing is both strategic and beautiful. We never compromise on design quality, even when deadlines are tight.</p>
+            </div>
+            <div className="p-6 glass-card border border-gray-200 rounded-3xl">
+              <h3 className="font-bold text-gray-900 mb-2">Partnership Mindset</h3>
+              <p className="text-sm text-gray-600">We treat your business like it’s our own — staying invested in your growth long after the campaign launches.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* AI Features */}
+      <section className="bg-transparent py-24 relative overflow-hidden">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center max-w-3xl mx-auto mb-12 space-y-4 reveal-element">
+            <h2 className="text-3xl sm:text-4xl font-extrabold text-gray-900">How We Use AI to Deliver Better Results</h2>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="p-6 glass-card border border-gray-200 rounded-3xl">
+              <h4 className="font-bold mb-2">Smarter Research</h4>
+              <p className="text-sm text-gray-600">AI-assisted keyword research, competitor analysis, and content gap identification means we build strategies on data, not guesswork.</p>
+            </div>
+            <div className="p-6 glass-card border border-gray-200 rounded-3xl">
+              <h4 className="font-bold mb-2">Better Targeting</h4>
+              <p className="text-sm text-gray-600">For Facebook Ads and social campaigns, AI helps us identify the most relevant audience segments, reducing wasted spend and improving conversion rates.</p>
+            </div>
+            <div className="p-6 glass-card border border-gray-200 rounded-3xl">
+              <h4 className="font-bold mb-2">Faster Creative</h4>
+              <p className="text-sm text-gray-600">AI-enhanced production workflows for graphic design and video editing mean faster turnaround without compromising on quality.</p>
+            </div>
+            <div className="p-6 glass-card border border-gray-200 rounded-3xl">
+              <h4 className="font-bold mb-2">Clearer Reporting</h4>
+              <p className="text-sm text-gray-600">AI-powered analytics give you performance insights that are easy to understand and act on — no jargon, just results.</p>
+            </div>
+          </div>
+
+          <p className="mt-6 text-sm text-gray-600">The result? Campaigns that are more precise, more efficient, and more effective — for businesses of every size in Rajkot and across India.</p>
+        </div>
+      </section>
+
+      {/* Award Section */}
+      <section className="bg-transparent py-24 relative overflow-hidden">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+            <div>
+              <h2 className="text-3xl sm:text-4xl font-extrabold text-gray-900">Recognised for Excellence — Saurashtra IT-ITeS Excellence Award 2024</h2>
+              <div className="w-16 h-1 bg-gradient-to-r from-lavender to-indigo-600 rounded-full my-4" />
+              <p className="text-sm text-gray-600">At Deckoid Solution, we let our work speak for itself — and in 2024, that work was officially recognised.</p>
+              <p className="text-sm text-gray-600 mt-4">🏆 Deckoid Solution was honoured at the Saurashtra IT-ITeS Excellence Awards 2024, presented by the Rajkot Information Technology Association (RITA) — the leading body representing IT and digital businesses across Saurashtra and Gujarat.</p>
+              <p className="text-sm text-gray-600 mt-3">The award recognised Deckoid’s outstanding achievements in IT and Digital Marketing, placing us among the most respected digital agencies in Rajkot and Saurashtra. For our founder Jigna Pipalia and the entire Deckoid team, this recognition represents not just an accolade — but a confirmation of the standard we hold ourselves to for every client, every campaign, every day.</p>
+              <p className="text-sm text-gray-600 mt-3">It is a milestone that reflects 8+ years of consistent work, 1,000+ clients served, and an unwavering commitment to results that matter.</p>
+            </div>
+            <div className="flex justify-center">
+              {/* Preserve any existing award image component; reuse founderImg as placeholder if none */}
+              <div className="glass-card p-6 rounded-3xl border border-gray-200">
+                <img src={founderImg} alt="Saurashtra IT-ITeS Excellence Award 2024" className="w-64 h-auto object-contain" loading="lazy" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Numbers / Counters */}
       <section className="about-metrics-section relative isolate py-24 border-t border-white/10 overflow-hidden">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(143,66,218,0.22),transparent_35%),radial-gradient(circle_at_bottom_right,rgba(255,255,255,0.08),transparent_30%)] pointer-events-none" />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          
-          <div className="text-center max-w-3xl mx-auto mb-20 space-y-4 reveal-element">
-            <span className="about-metrics-kicker text-xs font-bold tracking-widest uppercase">
-              By The Numbers
-            </span>
-            <h2 className="about-metrics-title text-3xl sm:text-4xl font-black font-display">
-              Metrics That Define Our Strengths
-            </h2>
+          <div className="text-center max-w-3xl mx-auto mb-12 space-y-4 reveal-element">
+            <h2 className="about-metrics-title text-3xl sm:text-4xl font-black font-display">Real Results for Real Businesses — Our Numbers</h2>
             <div className="about-metrics-divider w-20 h-1 rounded-full mx-auto" />
-            <p className="about-metrics-copy text-sm sm:text-base max-w-2xl mx-auto">
-              A brief look at the numbers that define our achievements, consistency, and standard of execution.
-            </p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-6 lg:gap-8 justify-center reveal-element-scale">
-            
-            {/* Counter Circle 1 */}
-            <div className="about-metric-card group relative overflow-hidden rounded-[28px] p-7 transition-all duration-300 hover:-translate-y-1">
-              <div className="about-metric-topline absolute inset-x-0 top-0 h-px opacity-90" />
-              <div className="about-metric-glow absolute -right-10 -top-10 h-32 w-32 rounded-full blur-3xl opacity-80 group-hover:opacity-100 transition-opacity duration-300" />
-              <div className="relative flex flex-col items-center text-center gap-3">
-                <StatCounter target={100} title="" suffix="+" duration={1200} className="about-metric-value text-center" />
-                <span className="about-metric-label text-lg font-semibold">Happy Users</span>
-                <span className="about-metric-subtitle text-sm">Trusted strategic relationships</span>
-              </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-6 lg:gap-8">
+            <div className="about-metric-card p-7 rounded-[28px]">
+              <StatCounter target={120} suffix="%" duration={1200} className="about-metric-value text-center" />
+              <span className="about-metric-label text-lg font-semibold">Average Website Traffic Growth</span>
             </div>
-
-            {/* Counter Circle 2 */}
-            <div className="about-metric-card group relative overflow-hidden rounded-[28px] p-7 transition-all duration-300 hover:-translate-y-1">
-              <div className="about-metric-topline absolute inset-x-0 top-0 h-px opacity-90" />
-              <div className="about-metric-glow absolute -right-10 -top-10 h-32 w-32 rounded-full blur-3xl opacity-80 group-hover:opacity-100 transition-opacity duration-300" />
-              <div className="relative flex flex-col items-center text-center gap-3">
-                <StatCounter target={500} title="" suffix="+" duration={1400} className="about-metric-value text-center" />
-                <span className="about-metric-label text-lg font-semibold">Total Orders</span>
-                <span className="about-metric-subtitle text-sm">Successful projects finished</span>
-              </div>
+            <div className="about-metric-card p-7 rounded-[28px]">
+              <StatCounter target={2} suffix="X" duration={1400} className="about-metric-value text-center" />
+              <span className="about-metric-label text-lg font-semibold">Lead Growth Through Facebook Ads</span>
             </div>
-
-            {/* Counter Circle 3 */}
-            <div className="about-metric-card group relative overflow-hidden rounded-[28px] p-7 transition-all duration-300 hover:-translate-y-1">
-              <div className="about-metric-topline absolute inset-x-0 top-0 h-px opacity-90" />
-              <div className="about-metric-glow absolute -right-10 -top-10 h-32 w-32 rounded-full blur-3xl opacity-80 group-hover:opacity-100 transition-opacity duration-300" />
-              <div className="relative flex flex-col items-center text-center gap-3">
-                <StatCounter target={1500} title="" suffix="+" duration={1600} className="about-metric-value text-center" />
-                <span className="about-metric-label text-lg font-semibold">Successful Delivery</span>
-                <span className="about-metric-subtitle text-sm">Optimized assets rendered</span>
-              </div>
+            <div className="about-metric-card p-7 rounded-[28px]">
+              <StatCounter target={200} suffix="%" duration={1600} className="about-metric-value text-center" />
+              <span className="about-metric-label text-lg font-semibold">Average Client ROI</span>
             </div>
-
-            {/* Counter Circle 4 */}
-            <div className="about-metric-card group relative overflow-hidden rounded-[28px] p-7 transition-all duration-300 hover:-translate-y-1">
-              <div className="about-metric-topline absolute inset-x-0 top-0 h-px opacity-90" />
-              <div className="about-metric-glow absolute -right-10 -top-10 h-32 w-32 rounded-full blur-3xl opacity-80 group-hover:opacity-100 transition-opacity duration-300" />
-              <div className="relative flex flex-col items-center text-center gap-3">
-                <StatCounter target={80000} title="" suffix="+" duration={1800} className="about-metric-value text-center" />
-                <span className="about-metric-label text-lg font-semibold">Transactions</span>
-                <span className="about-metric-subtitle text-sm">Marketing operations handled</span>
-              </div>
+            <div className="about-metric-card p-7 rounded-[28px]">
+              <StatCounter target={1000} suffix="+" duration={1800} className="about-metric-value text-center" />
+              <span className="about-metric-label text-lg font-semibold">Clients Served</span>
             </div>
-
           </div>
-
         </div>
       </section>
 
-      {/* 6. Call To Action Footer */}
+      {/* FAQ Section */}
+      <section className="bg-transparent py-24 relative overflow-hidden">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-3xl mx-auto space-y-6">
+            <h2 className="text-3xl sm:text-4xl font-extrabold text-gray-900">Frequently Asked Questions About Deckoid Solution</h2>
+            <div className="space-y-4 text-sm text-gray-600">
+              <details className="p-4 glass-card border border-gray-200 rounded-2xl">
+                <summary className="font-semibold">Who is the founder of Deckoid Solution?</summary>
+                <p className="mt-2">Jigna Pipalia is the founder of Deckoid Solution, a RITA award-winning digital marketing agency based in Rajkot, Gujarat. She founded the agency in 2018 and has personally built and grown it over 8+ years, serving 1,000+ clients across India.</p>
+              </details>
+              <details className="p-4 glass-card border border-gray-200 rounded-2xl">
+                <summary className="font-semibold">Who founded Deckoid Solution and where is it based?</summary>
+                <p className="mt-2">Deckoid Solution was founded by Jigna Pipalia and is headquartered in Rajkot, Gujarat, India. The agency was built to help businesses across Saurashtra and India grow online through strategic branding, SEO, web design, social media management, and Facebook Ads.</p>
+              </details>
+              <details className="p-4 glass-card border border-gray-200 rounded-2xl">
+                <summary className="font-semibold">What award has Deckoid Solution won?</summary>
+                <p className="mt-2">Deckoid Solution was honored at the Saurashtra IT-ITeS Excellence Awards 2024, presented by the Rajkot Information Technology Association (RITA). The award recognised Deckoid’s outstanding achievements in IT and Digital Marketing, making it one of the most recognised digital agencies in Rajkot and Saurashtra.</p>
+              </details>
+              <details className="p-4 glass-card border border-gray-200 rounded-2xl">
+                <summary className="font-semibold">Does Deckoid Solution use AI in their work?</summary>
+                <p className="mt-2">Yes. Deckoid Solution integrates AI tools across its full workflow — including AI-assisted keyword research and content analysis for SEO, AI-powered audience targeting for Facebook Ads, AI-enhanced production for graphic design and video editing, and AI-powered analytics for clearer client reporting. This makes campaigns faster, more targeted, and more cost-effective.</p>
+              </details>
+              <details className="p-4 glass-card border border-gray-200 rounded-2xl">
+                <summary className="font-semibold">Does Deckoid Solution work with businesses outside Rajkot?</summary>
+                <p className="mt-2">Yes. While Deckoid Solution is based in Rajkot, Gujarat, the agency works with businesses across India. Services are tailored to each client's target market — whether local, regional within Gujarat, or national across India.</p>
+              </details>
+              <details className="p-4 glass-card border border-gray-200 rounded-2xl">
+                <summary className="font-semibold">What results has Deckoid Solution delivered for its clients?</summary>
+                <p className="mt-2">Deckoid Solution has delivered measurable results including a 120% average increase in website traffic, 2x lead growth through Facebook Ads, and an average 200% return on investment for clients across multiple industries in India.</p>
+              </details>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* CTA */}
       <section className="bg-transparent py-24 relative overflow-hidden border-t border-gray-200">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6 reveal-element-scale">
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-gray-900">
-            Let's Collaborate on Your Vision
-          </h2>
-          <p className="text-gray-600 max-w-2xl mx-auto leading-relaxed text-sm sm:text-base">
-            We are always excited to connect with visionary companies. Reach out today to share your goals and discover how we can help you build a stronger digital presence.
-          </p>
+          <h2 className="text-3xl sm:text-4xl font-extrabold text-gray-900">Ready to Grow Your Business? Let’s Talk.</h2>
+          <p className="text-gray-600 max-w-2xl mx-auto leading-relaxed text-sm sm:text-base">Whether you’re a local business in Rajkot looking to grow online, or a company across India ready to scale — we’d love to start with a conversation. Tell us about your goals, and we’ll show you exactly how Deckoid Solution can help you get there.</p>
           <div className="pt-4 flex flex-wrap justify-center gap-4">
-            <Link 
-              to="/contact" 
-              className="inline-flex items-center gap-2 px-8 py-4 text-base font-bold text-midnight bg-lavender rounded-full shadow-lg transition-transform hover:scale-103 active:scale-98"
-            >
-              Get in Touch
-              <FaChevronRight className="text-xs" />
-            </Link>
-            <Link 
-              to="/services" 
-              className="inline-flex items-center gap-2 px-8 py-4 text-base font-bold text-gray-900 glass-card border border-gray-200 rounded-full hover:glass-card transition-colors"
-            >
-              See Our Works
-            </Link>
+            <Link to="/contact" className="inline-flex items-center gap-2 px-8 py-4 text-base font-bold text-midnight bg-lavender rounded-full shadow-lg transition-transform hover:scale-103 active:scale-98">Get Free Consultation <FaChevronRight className="text-xs" /></Link>
           </div>
         </div>
       </section>

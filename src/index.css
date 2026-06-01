@@ -31,19 +31,18 @@
   --color-midnight: #0b0a25;
 }
 
-/* Custom Scrollbar */
-::-webkit-scrollbar {
-  width: 8px;
+/* Hide native scrollbars but keep scrolling behavior */
+html {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE 10+ */
 }
-::-webkit-scrollbar-track {
-  background: #F8F7FC;
+html::-webkit-scrollbar {
+  width: 0;
+  height: 0;
 }
-::-webkit-scrollbar-thumb {
-  background: #EEE9FF;
-  border-radius: 4px;
-}
-::-webkit-scrollbar-thumb:hover {
-  background: #9F85FF;
+/* Keep body scrollable while preventing horizontal overflow */
+body {
+  overflow-y: auto;
 }
 
 html, body {

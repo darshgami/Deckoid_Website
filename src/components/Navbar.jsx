@@ -26,7 +26,7 @@ export default function Navbar() {
 
   return (
     <header 
-      className={`fixed top-0 left-0 w-full z-50 transition-all duration-400 ease-in-out ${
+      className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ease-in-out ${
         isScrolled 
           ? 'bg-white/80 backdrop-blur-xl shadow-[0_4px_25px_rgba(0,0,0,0.05)] py-3' 
           : 'bg-transparent py-5 sm:py-6'
@@ -72,7 +72,7 @@ export default function Navbar() {
             href="https://api.whatsapp.com/send/?phone=919586536724" 
             target="_blank" 
             rel="noopener noreferrer" 
-            className="group flex items-center gap-2 px-6 py-2.5 text-sm font-semibold text-white bg-[#8f42da] rounded-full shadow-[0_4px_15px_rgba(124,92,255,0.3)] transition-all duration-300 hover:bg-[#6A4BE6] hover:shadow-[0_6px_20px_rgba(124,92,255,0.4)] hover:-translate-y-0.5"
+            className="group flex items-center gap-2 px-6 py-2.5 text-sm font-semibold text-white bg-[#8f42da] rounded-full shadow-[0_4px_15px_rgba(124,92,255,0.3)] transition-all duration-300 hover:bg-[#6A4BE6] hover:shadow-[0_6px_20px_rgba(124,92,255,0.4)] hover:-translate-y-1"
           >
             Let's Talk
             <FaArrowRight className="text-xs transition-transform duration-300 group-hover:translate-x-1" />

@@ -156,7 +156,7 @@ export default function Services() {
     <div className="space-y-0">
       
       {/* 1. Header Banner */}
-      <section className="relative bg-transparent py-20 border-b border-gray-200 overflow-hidden">
+      <section className="relative bg-transparent py-20  overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-lavender/5 via-transparent to-transparent opacity-60" />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-left">
           <div className="max-w-3xl space-y-4 reveal-element">
@@ -211,7 +211,7 @@ export default function Services() {
                     style={{ transitionDelay: `${index * 50}ms` }}
                   >
                     {/* Scrolling mockups viewport */}
-                    <div className="relative overflow-hidden h-96 w-full bg-transparent group border-b border-gray-200 cursor-pointer">
+                    <div className="relative overflow-hidden h-96 w-full bg-transparent group cursor-pointer">
                       <img 
                         src={item.img} 
                         alt={item.title} 
@@ -300,7 +300,7 @@ export default function Services() {
                     style={{ transitionDelay: `${index * 50}ms` }}
                   >
                     {/* Scrolling mockups viewport */}
-                    <div className="relative overflow-hidden h-96 w-full bg-transparent group border-b border-gray-200 cursor-pointer">
+                    <div className="relative overflow-hidden h-96 w-full bg-transparent group  cursor-pointer">
                       <img 
                         src={item.img} 
                         alt={item.title} 
@@ -331,7 +331,7 @@ export default function Services() {
                     className="flex flex-col glass-card border border-gray-200 rounded-2xl overflow-hidden shadow-xl hover:border-lavender/30 transition-all duration-300"
                     style={{ transitionDelay: `${index * 50}ms` }}
                   >
-                    <div className="relative overflow-hidden h-96 w-full bg-transparent group border-b border-gray-200 cursor-pointer">
+                    <div className="relative overflow-hidden h-96 w-full bg-transparent group  cursor-pointer">
                       <img 
                         src={item.img} 
                         alt={item.title} 
@@ -361,7 +361,7 @@ export default function Services() {
                     style={{ transitionDelay: `${index * 50}ms` }}
                   >
                     {/* HTML5 Native Video Viewport */}
-                    <div className="relative h-[480px] bg-transparent overflow-hidden flex items-center justify-center border-b border-gray-200 group">
+                    <div className="relative h-[480px] bg-transparent overflow-hidden flex items-center justify-center  group">
                       <video 
                         className="w-full h-full object-cover"
                         controls 
@@ -395,7 +395,7 @@ export default function Services() {
                     className="flex flex-col glass-card border border-gray-200 rounded-2xl overflow-hidden shadow-xl hover:border-lavender/30 transition-all duration-300"
                     style={{ transitionDelay: `${index * 50}ms` }}
                   >
-                    <div className="relative overflow-hidden h-96 w-full bg-transparent group border-b border-gray-200 cursor-pointer">
+                    <div className="relative overflow-hidden h-96 w-full bg-transparent group cursor-pointer">
                       <img 
                         src={item.img} 
                         alt={item.title} 
