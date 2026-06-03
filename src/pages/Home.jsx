@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Autoplay, Pagination, Navigation } from 'swiper/modules';
+import { Autoplay, Pagination, Navigation, EffectCoverflow } from 'swiper/modules';
 import {
   FaArrowRight, FaWhatsapp, FaUserCheck, FaCheck, FaDraftingCompass,
   FaHeadphones, FaLaptopCode, FaPalette, FaShareAlt, FaBullhorn,
@@ -16,6 +16,10 @@ import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 
 // Asset Imports
+import awardPic from '../assets/awardpic.jpg';
+import awardCert from '../assets/award .jpeg';
+import award12 from '../assets/award12.jpeg';
+import award123 from '../assets/award123.jpeg';
 import awardTrophy from '../assets/Group 5.png';
 
 // Service Images
@@ -48,6 +52,14 @@ import t7Img from '../assets/testimonial-7.png';
 
 export default function Home() {
   const [openFaq, setOpenFaq] = useState(0);
+
+  const awardSlides = [
+    { src: awardPic, alt: 'Award certificate image' },
+    { src: awardCert, alt: 'Award recognition image' },
+    { src: award12, alt: 'Award recognition image 12' },
+    { src: award123, alt: 'Award recognition image 123' },
+    { src: awardTrophy, alt: 'Saurashtra IT-ITeS Excellence Trophy' },
+  ];
 
   const faqData = [
     {
@@ -206,38 +218,63 @@ export default function Home() {
       </div>
       {/* </section> */}
 
-      {/* 3. Full-width Award Header Section */}
-      <section className="bg-transparent py-12 border-t border-gray-200 relative overflow-hidden">
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-indigo-500/10 via-transparent to-transparent opacity-50" />
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+      {/* 3. Modern Award Section */}
+      <section className="relative py-10 md:py-14 overflow-hidden border-t border-gray-200">
+        <div className="absolute inset-0 bg-[linear-gradient(135deg,#f7f4ff_0%,#ffffff_45%,#f3efff_100%)]" />
+        <div className="absolute inset-0 opacity-40" style={{ backgroundImage: 'radial-gradient(circle at top left, rgba(139,92,246,0.10), transparent 30%), radial-gradient(circle at right center, rgba(79,70,229,0.10), transparent 28%)' }} />
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 z-10">
+          <div className="glass-card rounded-[28px] border border-white/70 p-6 md:p-8 lg:p-10 shadow-[0_14px_35px_rgba(124,92,255,0.10)] bg-white/70 backdrop-blur-md">
+            <div className="space-y-8">
+              <div className="text-center space-y-6 reveal-element-left max-w-4xl mx-auto">
+                <span className="inline-flex items-center rounded-full border border-violet-200 bg-violet-50 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.25em] text-accent-purple">IT-ITeS Excellence</span>
+                <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-gray-900 leading-tight">Recognized for Digital Brilliance</h2>
+                <p className="text-base sm:text-lg text-accent-purple font-semibold">Award-Winning Digital Marketing Agency – Deckoid Solutions</p>
+                <p className="text-gray-600 leading-relaxed text-sm sm:text-base max-w-3xl mx-auto">
+                  <b>Deckoid Solutions</b> is proud to be honored at the <b>Saurashtra IT-ITeS Excellence Awards 2024</b>, presented by the <b>Rajkot Information Technology Association (RITA).</b> This prestigious recognition celebrates our outstanding achievements in <b>IT and Digital Marketing</b>, reaffirming our commitment to innovation, creativity, and measurable success for our clients.
+                </p>
+              </div>
 
-            {/* Left: Text Content */}
-            <div className="lg:col-span-7 text-left space-y-6 reveal-element-left">
-              <span className="text-xs font-bold text-accent-purple tracking-widest uppercase">
-                IT-ITeS Excellence
-              </span>
-              <h2 className="text-3xl sm:text-4xl font-extrabold text-gray-900 leading-tight">
-                Recognized for Digital Brilliance
-              </h2>
-              <h1 className="text-base sm:text-lg text-accent-purple font-medium block">
-                Award-Winning Digital Marketing Agency – Deckoid Solutions
-              </h1>
-              <p className="text-gray-600 leading-relaxed text-sm sm:text-base">
-                <b>Deckoid Solutions</b> is proud to be honored at the <b>Saurashtra IT-ITeS Excellence Awards 2024</b>, presented by the <b>Rajkot Information Technology Association (RITA).</b> This prestigious recognition celebrates our outstanding achievements in <b>IT and Digital Marketing</b>, reaffirming our commitment to innovation, creativity, and measurable success for our clients.
-              </p>
-            </div>
-
-            {/* Right: Award Trophy Image */}
-            <div className="lg:col-span-5 flex justify-center reveal-element-right">
-              <div className="relative group max-w-sm">
-                <div className="absolute -inset-1.5 bg-gradient-to-r from-lavender to-indigo-600 rounded-2xl blur-lg opacity-40 group-hover:opacity-75 transition duration-1000 group-hover:duration-200" />
-                <img
-                  src={awardTrophy}
-                  alt="Saurashtra IT-ITeS Excellence Award Trophy"
-                  className="relative img-fluid max-h-96 object-contain transition-transform duration-500 group-hover:scale-103 "
-                  loading="lazy"
-                />
+              <div className="reveal-element-right">
+                <div className="p-0">
+                  <Swiper
+                    modules={[Autoplay, Pagination, Navigation, EffectCoverflow]}
+                    effect="coverflow"
+                    coverflowEffect={{
+                      rotate: 0,
+                      stretch: 0,
+                      depth: 120,
+                      modifier: 2.2,
+                      slideShadows: false,
+                    }}
+                    spaceBetween={16}
+                    slidesPerView={3}
+                    centeredSlides={true}
+                    autoplay={{ delay: 3200, disableOnInteraction: false }}
+                    pagination={{ clickable: true }}
+                    navigation={true}
+                    loop={true}
+                    grabCursor={true}
+                    watchOverflow={true}
+                    speed={700}
+                    breakpoints={{
+                      640: { slidesPerView: 1 },
+                      768: { slidesPerView: 2 },
+                      1024: { slidesPerView: 3 },
+                    }}
+                    className="award-carousel"
+                  >
+                    {awardSlides.map((slide, idx) => (
+                      <SwiperSlide key={idx} className="!bg-transparent !shadow-none">
+                        <img
+                          src={slide.src}
+                          alt={slide.alt}
+                          className="h-64 sm:h-72 md:h-80 w-full object-contain rounded-[18px]"
+                          loading="lazy"
+                        />
+                      </SwiperSlide>
+                    ))}
+                  </Swiper>
+                </div>
               </div>
             </div>
           </div>
@@ -246,7 +283,7 @@ export default function Home() {
 
 
       {/* 5. Services Cards Section */}
-      <section className="bg-transparent py-12 relative overflow-hidden">
+      <section className="bg-transparent py-12 md:py-16 relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
           <div className="text-center max-w-3xl mx-auto mb-10 space-y-4 reveal-element">
@@ -262,15 +299,15 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {services.map((service, index) => (
               <div
                 key={service.title}
-                className="group flex flex-col glass-card border border-gray-200 rounded-2xl overflow-hidden shadow-xl hover:border-lavender/30 transition-all duration-300 hover:-translate-y-1.5 reveal-element"
+                className="group flex flex-col glass-card border border-gray-200 rounded-2xl overflow-hidden shadow-lg hover:border-lavender/30 transition-all duration-300 hover:-translate-y-1 reveal-element"
                 style={{ transitionDelay: `${index * 100}ms` }}
               >
                 {/* Thumbnail Image */}
-                <div className="relative overflow-hidden h-85">
+                <div className="relative overflow-hidden h-52">
                   <div className="absolute inset-0 bg-gradient-to-t from-midnight/90 via-transparent to-transparent z-10" />
                   <img
                     src={service.img}
@@ -281,7 +318,7 @@ export default function Home() {
                 </div>
 
                 {/* Info Text */}
-                <div className="p-6 flex-grow flex flex-col justify-between text-left space-y-3">
+                <div className="p-5 flex-grow flex flex-col justify-between text-left space-y-3">
                   <div className="space-y-2">
                     <h3 className="text-xl font-bold text-gray-900 group-hover:text-accent-purple transition-colors duration-300">
                       {service.title}
@@ -309,7 +346,7 @@ export default function Home() {
       </section>
 
       {/* 6. Metrics and Analytics Section */}
-      <section className="bg-transparent py-12 relative overflow-hidden">
+      <section className="bg-transparent py-10 md:py-14 relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
           <div className="text-center max-w-3xl mx-auto mb-10 space-y-4 reveal-element">
@@ -325,10 +362,10 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12 text-left">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 text-left">
 
             {/* Metric 1 */}
-            <div className="flex flex-col glass-card border border-gray-200 rounded-3xl overflow-hidden p-6 sm:p-8 space-y-6 hover:border-lavender/30 transition-all duration-300 reveal-element-left">
+            <div className="flex flex-col glass-card border border-gray-200 rounded-3xl overflow-hidden p-5 sm:p-6 space-y-4 hover:border-lavender/30 transition-all duration-300 reveal-element-left">
               <div>
                 <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-2">
                   Winning Awards for <span className="text-accent-purple">2024-2025 Year</span>
@@ -337,18 +374,18 @@ export default function Home() {
                   Recognized as the Best Digital Marketing Company in Saurashtra for outstanding marketing results.
                 </p>
               </div>
-              <div className="relative group bg-transparent border border-gray-200 rounded-2xl p-4 overflow-hidden flex items-center justify-center">
+              <div className="relative group overflow-hidden flex items-center justify-center">
                 <img
                   src={metric1}
                   alt="Award Winning Performance analytics"
-                  className="max-h-72 w-auto object-contain rounded-xl transition-transform duration-500 group-hover:scale-102"
+                  className="max-h-56 w-auto object-contain  transition-transform duration-500 group-hover:scale-102"
                   loading="lazy"
                 />
               </div>
             </div>
 
             {/* Metric 2 */}
-            <div className="flex flex-col glass-card border border-gray-200 rounded-3xl overflow-hidden p-6 sm:p-8 space-y-6 hover:border-lavender/30 transition-all duration-300 reveal-element-right">
+            <div className="flex flex-col glass-card border border-gray-200 rounded-3xl overflow-hidden p-5 sm:p-6 space-y-4 hover:border-lavender/30 transition-all duration-300 reveal-element-right">
               <div>
                 <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-2">
                   Increasing Website Traffic by <span className="text-accent-purple">120%</span>
@@ -357,18 +394,18 @@ export default function Home() {
                   Transformed search visibility into meaningful user engagement with Deckoid's proven approach.
                 </p>
               </div>
-              <div className="relative group bg-transparent border border-gray-200 rounded-2xl p-4 overflow-hidden flex items-center justify-center">
+              <div className="relative group overflow-hidden flex items-center justify-center">
                 <img
                   src={metric2}
                   alt="Website Traffic Analytics chart"
-                  className="max-h-72 w-auto object-contain rounded-xl transition-transform duration-500 group-hover:scale-102"
+                  className="max-h-56 w-auto object-contain transition-transform duration-500 group-hover:scale-102"
                   loading="lazy"
                 />
               </div>
             </div>
 
             {/* Metric 3 */}
-            <div className="flex flex-col glass-card border border-gray-200 rounded-3xl overflow-hidden p-6 sm:p-8 space-y-6 hover:border-lavender/30 transition-all duration-300 reveal-element-left">
+            <div className="flex flex-col glass-card border border-gray-200 rounded-3xl overflow-hidden p-5 sm:p-6 space-y-4 hover:border-lavender/30 transition-all duration-300 reveal-element-left">
               <div>
                 <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-2">
                   Driving <span className="text-accent-purple">2x Lead Growth</span> via Facebook Ads
@@ -377,18 +414,18 @@ export default function Home() {
                   Generated consistent, sales-ready, high-intent lead pipelines using Deckoid's proven paid search campaigns.
                 </p>
               </div>
-              <div className="relative group bg-transparent border border-gray-200 rounded-2xl p-4 overflow-hidden flex items-center justify-center">
+              <div className="relative group overflow-hidden flex items-center justify-center">
                 <img
                   src={metric3}
                   alt="Facebook Ads Lead Generation chart"
-                  className="max-h-72 w-auto object-contain rounded-xl transition-transform duration-500 group-hover:scale-102"
+                  className="max-h-56 w-auto object-contain transition-transform duration-500 group-hover:scale-102"
                   loading="lazy"
                 />
               </div>
             </div>
 
             {/* Metric 4 */}
-            <div className="flex flex-col glass-card border border-gray-200 rounded-3xl overflow-hidden p-6 sm:p-8 space-y-6 hover:border-lavender/30 transition-all duration-300 reveal-element-right">
+            <div className="flex flex-col glass-card border border-gray-200 rounded-3xl overflow-hidden p-5 sm:p-6 space-y-4 hover:border-lavender/30 transition-all duration-300 reveal-element-right">
               <div>
                 <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-2">
                   Generating <span className="text-accent-purple">200% Average ROI</span>
@@ -397,11 +434,11 @@ export default function Home() {
                   Maximizing client return on investment through smart, data-powered marketing pipelines.
                 </p>
               </div>
-              <div className="relative group bg-transparent border border-gray-200 rounded-2xl p-4 overflow-hidden flex items-center justify-center">
+              <div className="relative group overflow-hidden flex items-center justify-center">
                 <img
                   src={metric4}
                   alt="Average ROI Marketing dashboard representation"
-                  className="max-h-72 w-auto object-contain rounded-xl transition-transform duration-500 group-hover:scale-102"
+                  className="max-h-56 w-auto object-contain  transition-transform duration-500 group-hover:scale-102"
                   loading="lazy"
                 />
               </div>
@@ -413,7 +450,7 @@ export default function Home() {
       </section>
 
       {/* 7. Why Choose Deckoid Section */}
-      <section className="bg-transparent py-12  relative overflow-hidden">
+      <section className="bg-transparent py-10 md:py-14 relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
           <div className="text-center max-w-3xl mx-auto mb-10 space-y-4 reveal-element">
@@ -430,19 +467,21 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {valueCards.map((card, index) => (
               <div
                 key={card.title}
-                className="group text-left p-8 glass-card border border-gray-200 rounded-2xl hover:border-lavender/30 transition-all duration-300 hover:-translate-y-1 reveal-element"
+                className="group text-left p-5 glass-card border border-gray-200 rounded-2xl hover:border-lavender/30 transition-all duration-300 hover:-translate-y-1 reveal-element"
                 style={{ transitionDelay: `${index * 100}ms` }}
               >
-                <div className="w-14 h-14 rounded-2xl bg-lavender/10 border border-lavender/20 flex items-center justify-center text-accent-purple text-3xl group-hover:bg-lavender group-hover:text-midnight transition-colors duration-300 mb-6">
-                  <card.icon />
+                <div className="flex items-start gap-3 mb-4">
+                  <span className="mt-1 flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-lavender/10 border border-lavender/20 text-accent-purple text-lg group-hover:bg-lavender group-hover:text-midnight transition-colors duration-300">
+                    <card.icon />
+                  </span>
+                  <h3 className="text-base sm:text-lg font-semibold leading-snug text-gray-900 group-hover:text-accent-purple transition-colors duration-300">
+                    {card.title}
+                  </h3>
                 </div>
-                <h3 className="text-lg font-bold text-gray-900 mb-3 group-hover:text-accent-purple transition-colors duration-300">
-                  {card.title}
-                </h3>
                 <p className="text-sm text-gray-600 leading-relaxed">
                   {card.desc}
                 </p>
@@ -458,7 +497,7 @@ export default function Home() {
       </section>
 
       {/* 9. Testimonial Section */}
-      <section className="bg-transparent py-12 relative overflow-hidden">
+      <section className="bg-transparent py-16 md:py-20 relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
           <div className="text-center max-w-3xl mx-auto mb-10 space-y-4 reveal-element">
@@ -476,6 +515,7 @@ export default function Home() {
               modules={[Autoplay, Pagination, Navigation]}
               spaceBetween={30}
               slidesPerView={1}
+              loop={true}
               autoplay={{ delay: 4000, disableOnInteraction: false }}
               pagination={{ clickable: true }}
               navigation={true}
@@ -487,7 +527,7 @@ export default function Home() {
             >
               {testimonials.map((test, idx) => (
                 <SwiperSlide key={idx} className="h-full">
-                  <div className="flex flex-col items-center glass-card border border-gray-200 rounded-3xl p-6 h-full text-center hover:border-lavender/30 transition-all duration-300 hover:-translate-y-1">
+                  <div className="flex flex-col items-center glass-card border border-gray-200 rounded-3xl p-5 h-full text-center hover:border-lavender/30 transition-all duration-300 hover:-translate-y-1">
 
                     {/* User profile picture */}
                     <div className="w-20 h-20 rounded-full overflow-hidden border-2 border-lavender glass-card mb-6 shrink-0">
@@ -523,19 +563,20 @@ export default function Home() {
       </section>
 
       {/* 9.5 FAQ Section */}
-      <section className="bg-transparent py-12 relative overflow-hidden">
+      <section className="bg-transparent py-16 md:py-20 relative overflow-hidden">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           
           <div className="text-center mb-10 space-y-4 reveal-element">
             <span className="text-xs font-bold text-accent-purple tracking-widest uppercase">
-              FAQS • COMMON QUESTIONS
+              FAQS
             </span>
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-gray-900">
               Everything You Need to Know
             </h2>
             <div className="w-16 h-1 bg-gradient-to-r from-lavender to-indigo-600 rounded-full mx-auto" />
             <p className="text-gray-500 text-sm sm:text-base">
-              Get answers to the most common questions about our digital marketing, branding, website development, SEO, and AI-powered business solutions.
+              Get answers to the most common questions about our digital marketing,<br />
+              branding, website development, SEO, and AI-powered business solutions.
             </p>
           </div>
 
@@ -571,7 +612,7 @@ export default function Home() {
       </section>
 
       {/* 10. Contact Us Form Section */}
-      <section className="bg-transparent py-12 relative overflow-hidden">
+      <section className="bg-transparent py-16 md:py-20 relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">

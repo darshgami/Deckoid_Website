@@ -98,10 +98,43 @@ h1, h2, h3, h4, h5, h6 {
 /* Navbar */
 header.fixed {
   background: rgb(11 10 37) !important;
-  background: linear-gradient(90deg, rgba(11,10,37,0.8) 0%, rgba(11,10,37,0.6) 100%) !important;
+  background: #0b0a25 !important;
   backdrop-filter: blur(16px) !important;
   -webkit-backdrop-filter: blur(16px) !important;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.02) !important;
+}
+
+.nav-link,
+.mobile-nav-link {
+  position: relative;
+}
+
+.nav-link::after,
+.mobile-nav-link::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: -6px;
+  width: 0;
+  height: 2px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #8f42da 0%, #b895e5 100%);
+  transform: translateX(-50%);
+  transition: width 0.25s ease, opacity 0.25s ease;
+  opacity: 0;
+}
+
+.nav-link:hover::after,
+.mobile-nav-link:hover::after,
+.nav-link.active::after,
+.mobile-nav-link.active::after {
+  width: 100%;
+  opacity: 1;
+}
+
+.nav-link.active,
+.mobile-nav-link.active {
+  color: #8f42da !important;
 }
 
 /* About Metrics */

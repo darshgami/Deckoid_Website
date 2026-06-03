@@ -1,10 +1,40 @@
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
-import { FaChevronRight, FaTrophy } from 'react-icons/fa';
+import { FaChevronDown, FaChevronRight, FaTrophy } from 'react-icons/fa';
 import StatCounter from '../components/StatCounter';
 import founderImg from '../assets/owner.JPG';
 
 export default function About() {
+  const [openFaq, setOpenFaq] = useState(0);
+
+  const faqData = [
+    {
+      question: 'Who is the founder of Deckoid Solution?',
+      answer: 'Jigna Pipalia is the founder of Deckoid Solution, a RITA award-winning digital marketing agency based in Rajkot, Gujarat. She founded the agency in 2018 and has personally built and grown it over 8+ years, serving 1,000+ clients across India.'
+    },
+    {
+      question: 'Who founded Deckoid Solution and where is it based?',
+      answer: 'Deckoid Solution was founded by Jigna Pipalia and is headquartered in Rajkot, Gujarat, India. The agency was built to help businesses across Saurashtra and India grow online through strategic branding, SEO, web design, social media management, and Facebook Ads.'
+    },
+    {
+      question: 'What award has Deckoid Solution won?',
+      answer: 'Deckoid Solution was honored at the Saurashtra IT-ITeS Excellence Awards 2024, presented by the Rajkot Information Technology Association (RITA). The award recognised Deckoid’s outstanding achievements in IT and Digital Marketing, making it one of the most recognised digital agencies in Rajkot and Saurashtra.'
+    },
+    {
+      question: 'Does Deckoid Solution use AI in their work?',
+      answer: 'Yes. Deckoid Solution integrates AI tools across its full workflow — including AI-assisted keyword research and content analysis for SEO, AI-powered audience targeting for Facebook Ads, AI-enhanced production for graphic design and video editing, and AI-powered analytics for clearer client reporting. This makes campaigns faster, more targeted, and more cost-effective.'
+    },
+    {
+      question: 'Does Deckoid Solution work with businesses outside Rajkot?',
+      answer: 'Yes. While Deckoid Solution is based in Rajkot, Gujarat, the agency works with businesses across India. Services are tailored to each client\'s target market — whether local, regional within Gujarat, or national across India.'
+    },
+    {
+      question: 'What results has Deckoid Solution delivered for its clients?',
+      answer: 'Deckoid Solution has delivered measurable results including a 120% average increase in website traffic, 2x lead growth through Facebook Ads, and an average 200% return on investment for clients across multiple industries in India.'
+    }
+  ];
+
   const faqSchema = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
@@ -125,33 +155,34 @@ export default function About() {
       <section className="relative bg-transparent  pt-28 sm:pt-32 lg:pt-36 pb-12 md:pb-16 lg:pb-20 overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="reveal-element text-left">
-              <h1 className="font-black text-gray-900 font-display w-full" style={{ fontSize: 'clamp(2.25rem, 5vw, 4.5rem)', lineHeight: 1.02 }}>
-              We Are <span className="text-[#8b5cf6]">Deckoid Solution</span> — Rajkot's AI-Powered Digital Marketing Agency
+              <h1 className="text-3xl font-black font-extrabold text-gray-900 font-display w-full">
+              We Are <span className="text-3xl font-extrabold text-[#8b5cf6]">Deckoid Solution</span> <br /> Rajkot's AI-Powered Digital Marketing Agency
             </h1>
-            <div className="w-16 h-1 bg-gradient-to-r from-lavender to-indigo-600 rounded-full my-5" />
+            <div className="w-45 h-1 bg-gradient-to-r from-lavender to-indigo-600 rounded-full my-5" />
             <p className="text-gray-600 text-sm md:text-base max-w-3xl" style={{ lineHeight: 1.85 }}>
-              We started with one belief: that every business in Rajkot, Gujarat, and across India deserves marketing that actually works. Today, Deckoid Solution is a RITA award-winning digital marketing agency combining strategic thinking, creative design, and AI-powered tools to help businesses grow online — consistently, measurably, and with clarity.
+              We started with one belief: that every business in Rajkot, Gujarat, and across India deserves marketing that actually works Today, Deckoid Solution is a RITA award-winning digital marketing agency combining strategic thinking, creative design, and AI-powered tools to help businesses grow online — consistently, measurably, and with clarity.
             </p>
           </div>
         </div>
         </section>
 
       {/* Our Story */}
-      <section className="bg-transparent py-24 relative overflow-hidden">
+      <section className="bg-transparent py-35 relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
             <div className="lg:col-span-7 text-left space-y-6 reveal-element-left">
-              <h2 className="text-3xl sm:text-4xl font-extrabold text-gray-900">Our Story — From Rajkot to Businesses Across India</h2>
+              <h2 className="text-3xl sm:text-4xl font-extrabold text-gray-900">Our Story</h2> 
+              <h2 className="text-3xl sm:text-3xl font-extrabold ">From Rajkot to Businesses Across India</h2>
               <div className="w-16 h-1 bg-gradient-to-r from-lavender to-indigo-600 rounded-full" />
               <div className="space-y-4 text-sm sm:text-base text-gray-600 leading-relaxed font-normal">
                 <p>
-                  Deckoid Solution was founded in Rajkot, Gujarat, with a clear purpose: to bridge the gap between great businesses and the digital strategies they need to reach their full potential. We saw local businesses struggling to make sense of SEO, social media, and digital advertising — spending money without a clear strategy or measurable returns.
+                  Deckoid Solution was founded in Rajkot, Gujarat, with a clear purpose: to bridge the gap between great businesses and the digital strategies they need to reach their full potential. We saw local businesses struggling to make sense of SEO, social media, and digital advertising spending money without a clear strategy or measurable returns.
                 </p>
                 <p>
-                  So we built an agency that does things differently. We start with your goals. We build strategies that fit your market — whether you’re targeting customers in Saurashtra, Gujarat, or anywhere across India. And we stay accountable to results, not just deliverables.
+                  So we built an agency that does things differently. We start with your goals. We build strategies that fit your market whether you’re targeting customers in Saurashtra, Gujarat, or anywhere across India. And we stay accountable to results, not just deliverables.
                 </p>
                 <p>
-                  In 2024, that commitment was recognised at the Saurashtra IT-ITeS Excellence Awards, where Deckoid Solution received the award for outstanding achievement in IT and Digital Marketing — making us one of the most recognised digital agencies in Rajkot.
+                  In 2024, that commitment was recognised at the Saurashtra IT-ITeS Excellence Awards, where Deckoid Solution received the award for outstanding achievement in IT and Digital Marketing making us one of the most recognised digital agencies in Rajkot.
                 </p>
               </div>
             </div>
@@ -171,7 +202,30 @@ export default function About() {
       <section className="bg-transparent py-24 relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
-            <div className="lg:col-span-5 flex justify-center reveal-element-left">
+            <div className="lg:col-span-7 text-left space-y-6 reveal-element-left">
+              <h2 className="text-3xl sm:text-4xl font-extrabold text-gray-900">Meet the Founder — The Visionary Behind Deckoid Solution</h2>
+              <div className="w-16 h-1 bg-gradient-to-r from-lavender to-indigo-600 rounded-full" />
+              <div className="space-y-4 text-gray-600 text-sm sm:text-base leading-relaxed">
+                <p>
+                  Jigna Pipalia is the founder and sole driving force behind Deckoid Solution — one of Rajkot’s most recognised digital marketing agencies. For over 8 years, she has built, managed, and grown the agency entirely on her own, treating it with the same dedication and care she gives her family.
+                </p>
+                <p>A Computer Engineering graduate from Marwadi University and a proud self-learner, Jigna discovered her passion for marketing and internet strategy early in her career — and has never stopped deepening it. Today she is an AI Practitioner and Digital Marketing Strategist with hands-on expertise across SEO, Social Media Marketing, Google and Facebook Ads, Web & App Development, and Graphic Design.</p>
+                <p>
+                  Since founding Deckoid Solution in April 2018, Jigna has personally served 1,000+ clients across industries, including coaching, manufacturing, real estate, fashion and jewellery, health and wellness, education, travel, and retail — helping each one grow their digital presence and generate measurable business results.
+                </p>
+                <p>
+                  Beyond her agency, Jigna is an active and valued member of both the IT Association Rajkot and the Patel Business Association — two communities where she contributes her expertise and builds meaningful connections across the Gujarat business ecosystem.
+                </p>
+                <p>
+                  What makes Jigna’s story particularly remarkable is that she has built all of this while raising two children — a testament to the resilience, focus, and quiet determination that define everything she does. Deckoid Solution is not just a business she runs — it is something she has grown, protected, and nurtured from the ground up, the same way she does everything she loves.
+                </p>
+                <p>
+                  Connect with Jigna on LinkedIn for insights on digital marketing, AI, and growing your business online in India.
+                </p>
+              </div>
+            </div>
+
+            <div className="lg:col-span-5 flex justify-center reveal-element-right">
               <div className="w-full max-w-[420px] mx-auto lg:mx-0">
                 <div
                   className="transform transition-all duration-400"
@@ -218,30 +272,6 @@ export default function About() {
                 </div>
                 {/* Hover effect wrapper to translate card */}
                 <style>{`.reveal-element-left > div > div:hover { transform: translateY(-8px); box-shadow: 0 30px 80px rgba(13,11,39,0.25); transition: all 0.4s ease; }`}</style>
-              </div>
-            </div>
-            <div className="lg:col-span-7 text-left space-y-6 reveal-element-right">
-              <h2 className="text-3xl sm:text-4xl font-extrabold text-gray-900">Meet the Founder — The Woman Behind Deckoid Solution</h2>
-              <div className="w-16 h-1 bg-gradient-to-r from-lavender to-indigo-600 rounded-full" />
-              <div className="space-y-4 text-gray-600 text-sm sm:text-base leading-relaxed">
-                <p>
-                  Jigna Pipalia is the founder and sole driving force behind Deckoid Solution — one of Rajkot’s most recognised digital marketing agencies. For over 8 years, she has built, managed, and grown the agency entirely on her own, treating it with the same dedication and care she gives her family.
-                </p>
-                <p>
-                  A Computer Engineering graduate from Marwadi University and a proud self-learner, Jigna discovered her passion for marketing and internet strategy early in her career — and has never stopped deepening it. Today she is an AI Practitioner and Digital Marketing Strategist with hands-on expertise across SEO, Social Media Marketing, Google and Facebook Ads, Web & App Development, and Graphic Design.
-                </p>
-                <p>
-                  Since founding Deckoid Solution in April 2018, Jigna has personally served 1,000+ clients across industries, including coaching, manufacturing, real estate, fashion and jewellery, health and wellness, education, travel, and retail — helping each one grow their digital presence and generate measurable business results.
-                </p>
-                <p>
-                  Beyond her agency, Jigna is an active and valued member of both the IT Association Rajkot and the Patel Business Association — two communities where she contributes her expertise and builds meaningful connections across the Gujarat business ecosystem.
-                </p>
-                <p>
-                  What makes Jigna’s story particularly remarkable is that she has built all of this while raising two children — a testament to the resilience, focus, and quiet determination that define everything she does. Deckoid Solution is not just a business she runs — it is something she has grown, protected, and nurtured from the ground up, the same way she does everything she loves.
-                </p>
-                <p>
-                  Connect with Jigna on LinkedIn for insights on digital marketing, AI, and growing your business online in India.
-                </p>
               </div>
             </div>
           </div>
@@ -322,28 +352,7 @@ export default function About() {
               <p className="text-sm text-gray-600 mt-4">🏆 Deckoid Solution was honoured at the Saurashtra IT-ITeS Excellence Awards 2024, presented by the Rajkot Information Technology Association (RITA) — the leading body representing IT and digital businesses across Saurashtra and Gujarat.</p>
               <p className="text-sm text-gray-600 mt-3">The award recognised Deckoid’s outstanding achievements in IT and Digital Marketing, placing us among the most respected digital agencies in Rajkot and Saurashtra. For our founder Jigna Pipalia and the entire Deckoid team, this recognition represents not just an accolade — but a confirmation of the standard we hold ourselves to for every client, every campaign, every day.</p>
               <p className="text-sm text-gray-600 mt-3">It is a milestone that reflects 8+ years of consistent work, 1,000+ clients served, and an unwavering commitment to results that matter.</p>
-
-              {/* Trust Metrics - horizontal stats row */}
-              <div className="mt-8">
-                <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 text-center">
-                  <div className="py-4">
-                    <div className="text-2xl font-extrabold text-gray-900">8+</div>
-                    <div className="text-sm text-gray-600">Years Experience</div>
-                  </div>
-                  <div className="py-4">
-                    <div className="text-2xl font-extrabold text-gray-900">1000+</div>
-                    <div className="text-sm text-gray-600">Clients Served</div>
-                  </div>
-                  <div className="py-4">
-                    <div className="text-2xl font-extrabold text-gray-900">2024</div>
-                    <div className="text-sm text-gray-600">Award Winner</div>
-                  </div>
-                  <div className="py-4">
-                    <div className="text-2xl font-extrabold text-gray-900">Rajkot</div>
-                    <div className="text-sm text-gray-600">Based Agency</div>
-                  </div>
-                </div>
-              </div>
+            
             </div>
 
             <div className="flex justify-center">
@@ -404,35 +413,36 @@ export default function About() {
 
       {/* FAQ Section */}
       <section className="bg-transparent py-24 relative overflow-hidden">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl mx-auto space-y-6">
-            <h2 className="text-3xl sm:text-4xl font-extrabold text-gray-900">Frequently Asked Questions About Deckoid Solution</h2>
-            <div className="space-y-4 text-sm text-gray-600">
-              <details className="p-4 glass-card border border-gray-200 rounded-2xl">
-                <summary className="font-semibold">Who is the founder of Deckoid Solution?</summary>
-                <p className="mt-2">Jigna Pipalia is the founder of Deckoid Solution, a RITA award-winning digital marketing agency based in Rajkot, Gujarat. She founded the agency in 2018 and has personally built and grown it over 8+ years, serving 1,000+ clients across India.</p>
-              </details>
-              <details className="p-4 glass-card border border-gray-200 rounded-2xl">
-                <summary className="font-semibold">Who founded Deckoid Solution and where is it based?</summary>
-                <p className="mt-2">Deckoid Solution was founded by Jigna Pipalia and is headquartered in Rajkot, Gujarat, India. The agency was built to help businesses across Saurashtra and India grow online through strategic branding, SEO, web design, social media management, and Facebook Ads.</p>
-              </details>
-              <details className="p-4 glass-card border border-gray-200 rounded-2xl">
-                <summary className="font-semibold">What award has Deckoid Solution won?</summary>
-                <p className="mt-2">Deckoid Solution was honored at the Saurashtra IT-ITeS Excellence Awards 2024, presented by the Rajkot Information Technology Association (RITA). The award recognised Deckoid’s outstanding achievements in IT and Digital Marketing, making it one of the most recognised digital agencies in Rajkot and Saurashtra.</p>
-              </details>
-              <details className="p-4 glass-card border border-gray-200 rounded-2xl">
-                <summary className="font-semibold">Does Deckoid Solution use AI in their work?</summary>
-                <p className="mt-2">Yes. Deckoid Solution integrates AI tools across its full workflow — including AI-assisted keyword research and content analysis for SEO, AI-powered audience targeting for Facebook Ads, AI-enhanced production for graphic design and video editing, and AI-powered analytics for clearer client reporting. This makes campaigns faster, more targeted, and more cost-effective.</p>
-              </details>
-              <details className="p-4 glass-card border border-gray-200 rounded-2xl">
-                <summary className="font-semibold">Does Deckoid Solution work with businesses outside Rajkot?</summary>
-                <p className="mt-2">Yes. While Deckoid Solution is based in Rajkot, Gujarat, the agency works with businesses across India. Services are tailored to each client's target market — whether local, regional within Gujarat, or national across India.</p>
-              </details>
-              <details className="p-4 glass-card border border-gray-200 rounded-2xl">
-                <summary className="font-semibold">What results has Deckoid Solution delivered for its clients?</summary>
-                <p className="mt-2">Deckoid Solution has delivered measurable results including a 120% average increase in website traffic, 2x lead growth through Facebook Ads, and an average 200% return on investment for clients across multiple industries in India.</p>
-              </details>
-            </div>
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-10 space-y-4 reveal-element">
+            <span className="text-xs font-bold text-accent-purple tracking-widest uppercase">FAQS</span>
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-gray-900">Frequently Asked Questions About Deckoid Solution</h2>
+            <div className="w-16 h-1 bg-gradient-to-r from-lavender to-indigo-600 rounded-full mx-auto" />
+            <p className="text-gray-500 text-sm sm:text-base">Get clear answers to the most common questions about our agency, expertise, AI-powered approach, and client results.</p>
+          </div>
+
+          <div className="space-y-4 reveal-element">
+            {faqData.map((faq, index) => (
+              <div
+                key={index}
+                className={`glass-card border rounded-2xl overflow-hidden transition-all duration-300 ${openFaq === index ? 'border-lavender shadow-[0_8px_30px_rgba(182,149,231,0.15)]' : 'border-gray-200 hover:border-lavender/50'}`}
+              >
+                <button
+                  onClick={() => setOpenFaq(openFaq === index ? null : index)}
+                  className="w-full flex items-center justify-between p-6 text-left focus:outline-none"
+                >
+                  <h3 className={`text-base sm:text-lg font-bold pr-8 transition-colors duration-300 ${openFaq === index ? 'text-accent-purple' : 'text-gray-900'}`}>
+                    {faq.question}
+                  </h3>
+                  <div className={`shrink-0 w-8 h-8 rounded-full flex items-center justify-center transition-all duration-300 ${openFaq === index ? 'bg-lavender text-accent-purple' : 'bg-gray-100 text-gray-500'}`}>
+                    <FaChevronDown className={`text-sm transition-transform duration-300 ${openFaq === index ? 'rotate-180' : ''}`} />
+                  </div>
+                </button>
+                <div className={`overflow-hidden transition-all duration-300 ease-in-out ${openFaq === index ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'}`}>
+                  <div className="p-6 pt-0 text-sm sm:text-base text-gray-600 leading-relaxed">{faq.answer}</div>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </section>

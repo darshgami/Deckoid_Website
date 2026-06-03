@@ -52,13 +52,13 @@ export default function Navbar() {
             { name: 'Portfolio', path: '/portfolio' },
             { name: 'Contact', path: '/contact' }
           ].map((item) => (
-            <NavLink 
+            <NavLink
               key={item.name}
-              to={item.path} 
-              className={({ isActive }) => `text-sm tracking-wide transition-colors duration-300 ${
-                isActive 
-                  ? 'text-gray-200 font-bold' 
-                  : 'text-gray-200 hover:text-[#b895e5] font-medium'
+              to={item.path}
+              className={({ isActive }) => `nav-link text-sm tracking-wide transition-colors duration-300 ${
+                isActive
+                  ? 'active text-[#8f42da] font-semibold'
+                  : 'text-white/90 hover:text-[#b895e5] font-medium'
               }`}
             >
               {item.name}
@@ -104,13 +104,13 @@ export default function Navbar() {
             { name: 'Portfolio', path: '/portfolio' },
             { name: 'Contact', path: '/contact' }
           ].map((item) => (
-            <NavLink 
+            <NavLink
               key={item.name}
-              to={item.path} 
-              className={({ isActive }) => `block px-5 py-3.5 rounded-xl text-base font-medium transition-all ${
-                isActive 
-                  ? 'bg-indigo-50 text-indigo-700' 
-                  : 'text-gray-600 hover:text-[#b895e5] hover:bg-gray-50'
+              to={item.path}
+              className={({ isActive }) => `mobile-nav-link block px-5 py-3.5 rounded-xl text-base font-medium transition-all ${
+                isActive
+                  ? 'active bg-[#f5effd] text-[#8f42da]'
+                  : 'text-gray-700 hover:text-[#8f42da] hover:bg-gray-50'
               }`}
             >
               {item.name}
