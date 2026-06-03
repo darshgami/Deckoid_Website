@@ -86,13 +86,13 @@ export default function Home() {
   };
 
   const services = [
-    { title: 'Website Design & Development', img: serviceWeb, icon: FaLaptopCode, desc: 'AI-informed UX decisions based on user behaviour data.' },
-    { title: 'Graphic Design', img: serviceGraphic, icon: FaPalette, desc: 'AI-enhanced production for faster creative turnaround.' },
-    { title: 'Social Media Management', img: serviceSocial, icon: FaShareAlt, desc: 'AI-assisted content scheduling & performance analytics.' },
-    { title: 'Facebook Paid Ads', img: serviceAds, icon: FaBullhorn, desc: 'AI-powered audience targeting & budget optimisation.' },
+    { title: 'Website Design & Development', img: serviceWeb, icon: FaLaptopCode, desc: 'AI-informed UX decisions based on user behaviour data.', route: '/services/website-design' },
+    { title: 'Graphic Design', img: serviceGraphic, icon: FaPalette, desc: 'AI-enhanced production for faster creative turnaround.', route: '/services/graphic-design' },
+    { title: 'Social Media Management', img: serviceSocial, icon: FaShareAlt, desc: 'AI-assisted content scheduling & performance analytics.', route: '/services/social-media-management' },
+    { title: 'Facebook Paid Ads', img: serviceAds, icon: FaBullhorn, desc: 'AI-powered audience targeting & budget optimisation.', route: '/services/facebook-ads' },
     { title: 'Google Ads', img: serviceAds, icon: FaGoogle, desc: 'Targeted search engine marketing and display campaigns for instant leads.' },
-    { title: 'Ai Video Editing', img: serviceVideo, icon: FaVideo, desc: 'AI-assisted editing, subtitles & format optimisation' },
-    { title: 'Search Engine Optimization', img: serviceSEO, icon: FaSearch, desc: 'AI-assisted keyword research, content gap analysis & rank tracking.' },
+    { title: 'Ai Video Editing', img: serviceVideo, icon: FaVideo, desc: 'AI-assisted editing, subtitles & format optimisation', route: '/services/video-editing' },
+    { title: 'Search Engine Optimization', img: serviceSEO, icon: FaSearch, desc: 'AI-assisted keyword research, content gap analysis & rank tracking.', route: '/services/seo-services' },
     { title: 'Customized ERP Software', img: serviceWeb, icon: FaCogs, desc: 'Tailored enterprise resource systems to streamline operations and business workflow.' }
   ];
 
@@ -292,10 +292,10 @@ export default function Home() {
                   </div>
                   <div className="pt-2">
                     <Link
-                      to="/services"
+                      to={service.route || '/services'}
                       className="inline-flex items-center gap-1.5 text-xs font-bold text-accent-purple tracking-wider uppercase group-hover:text-gray-900 transition-colors duration-300"
                     >
-                      View Works
+                      Learn More
                       <FaArrowRight className="text-[10px] transition-transform duration-300 group-hover:translate-x-1" />
                     </Link>
                   </div>

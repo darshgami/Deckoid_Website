@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
-import { FaChevronRight } from 'react-icons/fa';
+import { FaChevronRight, FaTrophy } from 'react-icons/fa';
 import StatCounter from '../components/StatCounter';
 import founderImg from '../assets/owner.JPG';
 
@@ -209,7 +209,10 @@ export default function About() {
                       <div className="text-[#0d0b27] font-bold" style={{ fontSize: '18px', lineHeight: 1.8 }}>
                         "Every brand has a voice — my mission is to help it be heard."
                       </div>
-                      <div className="mt-3 text-[#8b5cf6] font-bold text-right" style={{ fontSize: '15px' }}>— Jigna Pipalia, Founder</div>
+                        <div className="mt-3 text-[#8b5cf6] font-bold text-right" style={{ fontSize: '15px' }}>
+                          - JIGNA PIPALIYA
+                          <div>( FOUNDER & CEO )</div>
+                        </div>
                     </div>
                   </div>
                 </div>
@@ -308,10 +311,10 @@ export default function About() {
         </div>
       </section>
 
-      {/* Award Section */}
-      <section className="bg-transparent py-24 relative overflow-hidden">
+      {/* Award Section - Premium Showcase */}
+      <section className="bg-transparent py-12 md:py-20 relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-[1.2fr_0.8fr] gap-16 items-center">
             <div>
               <h2 className="text-3xl sm:text-4xl font-extrabold text-gray-900">Recognised for Excellence — Saurashtra IT-ITeS Excellence Award 2024</h2>
               <div className="w-16 h-1 bg-gradient-to-r from-lavender to-indigo-600 rounded-full my-4" />
@@ -319,11 +322,51 @@ export default function About() {
               <p className="text-sm text-gray-600 mt-4">🏆 Deckoid Solution was honoured at the Saurashtra IT-ITeS Excellence Awards 2024, presented by the Rajkot Information Technology Association (RITA) — the leading body representing IT and digital businesses across Saurashtra and Gujarat.</p>
               <p className="text-sm text-gray-600 mt-3">The award recognised Deckoid’s outstanding achievements in IT and Digital Marketing, placing us among the most respected digital agencies in Rajkot and Saurashtra. For our founder Jigna Pipalia and the entire Deckoid team, this recognition represents not just an accolade — but a confirmation of the standard we hold ourselves to for every client, every campaign, every day.</p>
               <p className="text-sm text-gray-600 mt-3">It is a milestone that reflects 8+ years of consistent work, 1,000+ clients served, and an unwavering commitment to results that matter.</p>
+
+              {/* Trust Metrics - horizontal stats row */}
+              <div className="mt-8">
+                <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 text-center">
+                  <div className="py-4">
+                    <div className="text-2xl font-extrabold text-gray-900">8+</div>
+                    <div className="text-sm text-gray-600">Years Experience</div>
+                  </div>
+                  <div className="py-4">
+                    <div className="text-2xl font-extrabold text-gray-900">1000+</div>
+                    <div className="text-sm text-gray-600">Clients Served</div>
+                  </div>
+                  <div className="py-4">
+                    <div className="text-2xl font-extrabold text-gray-900">2024</div>
+                    <div className="text-sm text-gray-600">Award Winner</div>
+                  </div>
+                  <div className="py-4">
+                    <div className="text-2xl font-extrabold text-gray-900">Rajkot</div>
+                    <div className="text-sm text-gray-600">Based Agency</div>
+                  </div>
+                </div>
+              </div>
             </div>
+
             <div className="flex justify-center">
-              {/* Preserve any existing award image component; reuse founderImg as placeholder if none */}
-              <div className="glass-card p-6 rounded-3xl border border-gray-200">
-                <img src={founderImg} alt="Saurashtra IT-ITeS Excellence Award 2024" className="w-64 h-auto object-contain" loading="lazy" />
+              {/* Premium Award Card (placeholder trophy view when no award photo exists) */}
+              <div className="bg-white p-6 rounded-[32px] shadow" style={{ boxShadow: '0 25px 80px rgba(13,11,39,0.15)', border: '1px solid rgba(139,92,246,0.10)', maxWidth: 420, width: '100%' }}>
+                <div className="overflow-hidden rounded-[24px]">
+                  {/* No award photo in assets - render premium recognition layout */}
+                  <div className="w-full bg-transparent p-6 flex flex-col items-center text-center">
+                    <div className="text-[#8b5cf6] mb-4">
+                      <FaTrophy className="text-[64px]" />
+                    </div>
+                    <h3 className="text-lg font-bold text-gray-900">Saurashtra IT-ITeS<br/>Excellence Award 2024</h3>
+                    <div className="mt-3 inline-block bg-[#8b5cf6] text-white px-4 py-1 rounded-full text-sm font-semibold">Award Winner</div>
+                    <div className="mt-6 text-sm text-gray-600">Awarded for<br/>Outstanding Achievement<br/>in IT & Digital Marketing</div>
+                  </div>
+                </div>
+
+                {/* Award Highlight Box */}
+                <div className="mt-6" style={{ background: 'rgba(139,92,246,0.08)', borderLeft: '4px solid #8b5cf6', borderRadius: '16px', padding: '20px' }}>
+                  <div className="font-semibold text-[#0d0b27]">🏆 Award Winner</div>
+                  <div className="text-sm text-gray-700 mt-1">Saurashtra IT-ITeS Excellence Awards 2024</div>
+                  <div className="text-sm text-gray-600 mt-1">Presented by Rajkot Information Technology Association (RITA)</div>
+                </div>
               </div>
             </div>
           </div>

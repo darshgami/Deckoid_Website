@@ -77,20 +77,18 @@ export default function Footer() {
             </h4>
             <ul className="space-y-2 pt-2">
               {[
-                { name: 'Social Media Management', id: 'social' },
-                { name: 'Search Engine Optimization', id: 'google' },
-                { name: 'Graphic Design', id: 'graphics' },
-                { name: 'Website Design & Development', id: 'web' },
-                { name: 'Ai Video Editing', id: 'videos' },
-                { name: 'Facebook Ads', id: 'ads' },
-                { name: 'Google Ads', id: 'google' },
-                { name: 'Lead Generation', id: 'ads' },
-                { name: 'Customized ERP Software', id: 'erp' }
+                { name: 'Social Media Management', href: '/services/social-media-management' },
+                { name: 'Search Engine Optimization', href: '/services/seo-services' },
+                { name: 'Graphic Design', href: '/services/graphic-design' },
+                { name: 'Website Design & Development', href: '/services/website-design' },
+                { name: 'AI Video Editing', href: '/services/video-editing' },
+                { name: 'Facebook Ads', href: '/services/facebook-ads' },
+                { name: 'Google Ads', href: '/services/google-ads' },
+                { name: 'Customized ERP Software', href: '/services/website-design' }
               ].map((service) => (
                 <li key={service.name}>
                   <Link
-                    to="/services"
-                    state={{ selectedService: service.id }}
+                    to={service.href}
                     className="text-white hover:text-[#b895e5] hover:pl-2 transition-all duration-300 block text-sm"
                   >
                     {service.name}

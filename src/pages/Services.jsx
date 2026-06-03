@@ -1,425 +1,214 @@
-import { useState, useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
-import { FaLaptopCode, FaPalette, FaShareAlt, FaBullhorn, FaVideo, FaExternalLinkAlt, FaPlay, FaGoogle, FaCogs } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
 
-// Web Development Mockups
-import web1 from '../assets/website-1.jpg';
-import web2 from '../assets/website-2.jpg';
-import web3 from '../assets/website-3.jpg';
-import web4 from '../assets/website-4.jpg';
-import web5 from '../assets/website-5.jpg';
-import web6 from '../assets/website-6.jpg';
-import web7 from '../assets/website-7.jpg';
-import web8 from '../assets/website-8.jpg';
-
-// Graphic Design Mockups
-import graphic1 from '../assets/Graphics Design/1.jpg';
-import graphic2 from '../assets/Graphics Design/2.jpg';
-import graphic3 from '../assets/Graphics Design/3.jpg';
-import graphic4 from '../assets/Graphics Design/4.jpg';
-import graphic5 from '../assets/Graphics Design/5-5.jpg';
-import graphic6 from '../assets/Graphics Design/6.jpg';
-import graphic7 from '../assets/Graphics Design/7.jpg';
-import graphic8 from '../assets/Graphics Design/8.jpg';
-
-// Social Media Mockups
-import social1 from '../assets/facebook-ashwashaktiagro.jpg';
-import social2 from '../assets/facebook-khedutirrigationindia.jpg';
-import social3 from '../assets/facebook-patelholidayrajkot.jpg';
-import social4 from '../assets/facebook-cometpolyplast.jpg';
-import social5 from '../assets/facebook-profile-paw.jpg';
-import social6 from '../assets/facebook-FarmkingFoodOfficial.jpg';
-import social7 from '../assets/instagram-aksharchemicals.jpeg';
-import social8 from '../assets/instagram-svpv.jpeg';
-import social9 from '../assets/instagram-devarshcosmetic.jpeg';
-import social10 from '../assets/instagram-kosmodent.jpeg';
-import social11 from '../assets/instagram-blossomvalleynursery.jpeg';
-import social12 from '../assets/instagram-kenton-fittings.jpeg';
-
-// Facebook Ads Mockups
-import ad1 from '../assets/facbookAds-1.jpg';
-import ad2 from '../assets/facbookAds-2.jpg';
-import ad3 from '../assets/facbookAds-3.jpg';
-import ad4 from '../assets/facbookAds-4.jpg';
-import ad5 from '../assets/facbookAds-5.jpg';
-import ad6 from '../assets/facbookAds-6.jpg';
-import ad7 from '../assets/facbookAds-7.jpg';
-import ad8 from '../assets/facbookAds-8.jpg';
-
-// Video Editing Mockups
-import video1 from '../assets/Short Videos/1.mp4';
-import video2 from '../assets/Short Videos/2.mp4';
-import video3 from '../assets/Short Videos/3.mp4';
-import video4 from '../assets/Short Videos/4.mp4';
-import video5 from '../assets/Short Videos/5.mp4';
-import video6 from '../assets/Short Videos/6.mp4';
-import video7 from '../assets/Short Videos/7.mp4';
-import video8 from '../assets/Short Videos/8.mp4';
-import video9 from '../assets/Short Videos/9.mp4';
+const servicesList = [
+  {
+    title: 'SEO — Search Engine Optimisation',
+    desc: 'Get your business found on Google by customers actively searching for your services. We use AI-assisted keyword research, technical SEO, local SEO and on-page optimisation to increase rankings and drive qualified traffic.',
+    route: '/services/seo-services',
+  },
+  {
+    title: 'Facebook & Instagram Ads',
+    desc: 'Stop spending on ads that do not convert. We create AI-powered Facebook and Instagram campaigns focused on leads, sales and measurable ROI through smart targeting and continuous optimisation.',
+    route: '/services/facebook-ads',
+  },
+  {
+    title: 'Social Media Management',
+    desc: 'We manage your complete social media presence including strategy, content creation, posting schedules and audience engagement across Instagram, Facebook and LinkedIn.',
+    route: '/services/social-media-management',
+  },
+  {
+    title: 'Website Design & Development',
+    desc: 'Fast, modern and conversion-focused websites designed to perform. From business websites to eCommerce stores, every website is built for growth.',
+    route: '/services/website-design',
+  },
+  {
+    title: 'Graphic Design',
+    desc: 'Brand-focused design solutions including logos, social creatives, marketing materials, packaging design and visual identity systems.',
+    route: '/services/graphic-design',
+  },
+  {
+    title: 'AI Video Creation & Video Editing',
+    desc: 'Professional reels, brand videos, product showcases and AI-generated video content delivered faster and more efficiently without compromising quality.',
+    route: '/services/video-editing',
+  },
+  {
+    title: 'Google Ads',
+    desc: 'Reach customers the moment they search for what you offer. We run high-performance Google Search, Display, YouTube, and Shopping Ads campaigns with AI-assisted targeting and optimised bidding.',
+    route: '/services/google-ads',
+  },
+  {
+    title: 'Customized ERP Software',
+    desc: 'We build customised ERP software to automate operations, improve reporting, and streamline inventory, billing, and sales processes for growing businesses.',
+    route: '/services/erp-software',
+  }
+];
 
 export default function Services() {
-  const location = useLocation();
-  const [activeTab, setActiveTab] = useState(location.state?.selectedService || 'web');
-
-  useEffect(() => {
-    if (location.state && location.state.selectedService) {
-      setActiveTab(location.state.selectedService);
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+  const faqData = [
+    {
+      question: "What services does Deckoid Solution offer?",
+      answer: "Deckoid Solution is a full-service digital marketing agency in Rajkot offering SEO, social media management, Facebook Ads, website design, graphic design, video editing, and branding. We serve businesses across Gujarat and India."
+    },
+    {
+      question: "How long does SEO take to show results?",
+      answer: "SEO typically shows initial improvements within 3 months and more consistent results in 6-12 months depending on competition and site health."
     }
-  }, [location.state]);
-
-  const tabs = [
-    { id: 'web', label: 'Website Design & Development', icon: FaLaptopCode },
-    { id: 'graphics', label: 'Graphic Design', icon: FaPalette },
-    { id: 'social', label: 'Social Media', icon: FaShareAlt },
-    { id: 'ads', label: 'Facebook Ads', icon: FaBullhorn },
-    { id: 'google', label: 'Google Ads', icon: FaGoogle },
-    { id: 'videos', label: 'Ai Video Editing', icon: FaVideo },
-    { id: 'erp', label: 'Customized ERP Software', icon: FaCogs }
   ];
 
-  // Portfolio items data
-  const webMockups = [
-    { title: 'Corporate Portal', client: 'Enterprise SaaS', img: web1 },
-    { title: 'Agriculture Hub', client: 'FarmKing Foods', img: web2 },
-    { title: 'Fintech Dashboard', client: 'Zenith Pay', img: web3 },
-    { title: 'Industrial Web Portal', client: 'Comet Polyplast', img: web4 },
-    { title: 'E-commerce Platform', client: 'Devarsh Cosmetic', img: web5 },
-    { title: 'E-learning Portal', client: 'SVPV School', img: web6 },
-    { title: 'Pharma Digital Portal', client: 'Akshar Chem', img: web7 },
-    { title: 'Real Estate Platform', client: 'Patel Holidays', img: web8 }
-  ];
-
-  const graphicsMockups = [
-    { title: 'Brand Identity', client: 'Premium Packaging', img: graphic1 },
-    { title: 'Corporate Brochure', client: 'Industrial Fittings', img: graphic2 },
-    { title: 'Product Showcase Banner', client: 'Agro Chemicals', img: graphic3 },
-    { title: 'Exhibition Rollup', client: 'Techno Plast', img: graphic4 },
-    { title: 'Label Design Suite', client: 'Skin Cosmetics', img: graphic5 },
-    { title: 'Vector Pattern Asset', client: 'Modern Textile', img: graphic6 },
-    { title: 'Marketing Flier', client: 'Nursery Valley', img: graphic7 },
-    { title: 'Social Cover Art', client: 'Dental Clinic', img: graphic8 }
-  ];
-
-  const socialMockups = [
-    { title: 'Agro Facebook Post', client: 'Ashwashakti Agro', img: social1 },
-    { title: 'Irrigation Social Banner', client: 'Khedut Irrigation', img: social2 },
-    { title: 'Travel Instagram Story', client: 'Patel Holidays', img: social3 },
-    { title: 'Plastics Facebook Flier', client: 'Comet Polyplast', img: social4 },
-    { title: 'Pet Care Cover Art', client: 'Paw Paradise', img: social5 },
-    { title: 'Organic Foods Post', client: 'Farmking Foods', img: social6 },
-    { title: 'Chemicals Brand Post', client: 'Akshar Chemicals', img: social7 },
-    { title: 'School Admission Grid', client: 'SVPV Group', img: social8 },
-    { title: 'Beauty Product Launch', client: 'Devarsh Cosmetic', img: social9 },
-    { title: 'Dental Clinic Campaign', client: 'KosmoDent', img: social10 },
-    { title: 'Nursery Valley Social Post', client: 'Blossom Valley', img: social11 },
-    { title: 'Fittings Instagram Reel Cover', client: 'Kenton Fittings', img: social12 }
-  ];
-
-  const adsMockups = [
-    { title: 'Consulting Lead Campaign', client: 'Business Solution', img: ad1 },
-    { title: 'Product Sales Paid Ad', client: 'Skin Health Set', img: ad2 },
-    { title: 'Dental Camp Ads', client: 'Oral Care Rajkot', img: ad3 },
-    { title: 'Retail E-commerce Ad', client: 'Fashion Boutique', img: ad4 },
-    { title: 'Course Enrolment Campaign', client: 'Technical Institute', img: ad5 },
-    { title: 'B2B Leads Campaign', client: 'Export Polymers', img: ad6 },
-    { title: 'Holiday Booking Conversion', client: 'Group Package Ad', img: ad7 },
-    { title: 'Agricultural Seed Offer', client: 'High-Yield Seeds', img: ad8 }
-  ];
-
-  const videosMockups = [
-    { title: 'Creative Reel 1', type: 'Short Promo', src: video1 },
-    { title: 'Creative Reel 2', type: 'Product Unboxing', src: video2 },
-    { title: 'Creative Reel 3', type: 'Corporate Story', src: video3 },
-    { title: 'Creative Reel 4', type: 'Exhibition Summary', src: video4 },
-    { title: 'Creative Reel 5', type: 'Social Campaign', src: video5 },
-    { title: 'Creative Reel 6', type: 'Customer Review', src: video6 },
-    { title: 'Creative Reel 7', type: 'Educational Tutorial', src: video7 },
-    { title: 'Creative Reel 8', type: 'Brand Showcase', src: video8 },
-    { title: 'Creative Reel 9', type: 'Event Highlights', src: video9 }
-  ];
-
-  const googleMockups = [
-    { title: 'Search Engine SEM Lead Campaign', client: 'B2B Logistics', img: ad1 },
-    { title: 'Google Display Network Campaign', client: 'SaaS Startup', img: ad2 },
-    { title: 'Local Business Ads (MAP/Search)', client: 'Medical Rajkot', img: ad3 },
-    { title: 'Google Shopping Feed Campaign', client: 'E-commerce Retail', img: ad4 }
-  ];
-
-  const erpMockups = [
-    { title: 'Enterprise Resource System', client: 'Manufacturing ERP', img: web4 },
-    { title: 'Fintech Billing Suite', client: 'Zenith Pay ERP', img: web3 },
-    { title: 'Hospital Management System', client: 'Pharma Digital Portal', img: web7 }
-  ];
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": faqData.map(q => ({
+      "@type": "Question",
+      "name": q.question,
+      "acceptedAnswer": { "@type": "Answer", "text": q.answer }
+    }))
+  };
 
   return (
-    <div className="space-y-0">
-      
-      {/* 1. Header Banner */}
-      <section className="relative bg-transparent py-20  overflow-hidden">
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-lavender/5 via-transparent to-transparent opacity-60" />
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-left">
-          <div className="max-w-3xl space-y-4 reveal-element">
-            <span className="text-xs font-bold text-accent-purple tracking-widest uppercase">
-              Our Portfolio
-            </span>
-            <h1 className="text-4xl sm:text-5xl font-black text-gray-900 leading-tight font-display">
-              Creative Designs, Solid Results
-            </h1>
-            <div className="w-16 h-1 bg-gradient-to-r from-lavender to-indigo-600 rounded-full" />
-            <p className="text-gray-600 text-sm sm:text-base leading-relaxed max-w-2xl">
-              Explore our diverse works spanning custom web architectures, visual layouts, strategic social media campaigns, paid conversion ads, and video storytelling.
-            </p>
-          </div>
-        </div>
-      </section>
+    <div className="space-y-6">
+      <Helmet>
+        <title>Digital Marketing Services in Rajkot, India — Deckoid Solution</title>
+        <meta name="description" content="Explore Deckoid Solution's full range of digital marketing services — SEO, Facebook Ads, Web Design, Social Media, Graphic Design & AI-powered Video Editing. Serving businesses across Rajkot, Gujarat & India." />
+        <link rel="canonical" href="https://www.deckoid.com/services" />
+        <meta name="keywords" content="digital marketing services Rajkot, SEO services Rajkot, Facebook Ads agency India, web design Rajkot, social media management India, graphic design Rajkot, video editing services India, AI video creation India" />
+        <meta property="og:title" content="Digital Marketing Services in Rajkot — Deckoid Solution" />
+        <meta property="og:description" content="Explore Deckoid Solution's full range of digital marketing services — SEO, Facebook Ads, Web Design, Social Media, Graphic Design & AI-powered Video Editing." />
+        <meta name="twitter:card" content="summary_large_image" />
+        <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>
+      </Helmet>
 
-      {/* 2. Interactive Portfolio Grid and Tabs */}
-      <section className="bg-transparent py-20 relative overflow-hidden">
+      <section className="bg-transparent pt-28 sm:pt-32 lg:pt-36 pb-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          
-          {/* Tab Navigation buttons */}
-          <div className="flex flex-wrap justify-center gap-2 mb-16 reveal-element">
-            <div className="flex flex-wrap justify-center gap-1 md:gap-2 p-1.5 glass-card border border-gray-200 rounded-2xl backdrop-blur-sm">
-              {tabs.map((tab) => (
-                <button
-                  key={tab.id}
-                  onClick={() => setActiveTab(tab.id)}
-                  className={`flex items-center gap-1.5 sm:gap-2 px-3 py-2 sm:px-4 sm:py-2.5 lg:px-5 lg:py-3 rounded-xl text-[10px] sm:text-xs lg:text-sm font-bold tracking-wide uppercase whitespace-nowrap transition-all duration-300 ${
-                    activeTab === tab.id
-                      ? 'bg-lavender text-midnight shadow-[0_4px_15px_rgba(182,149,231,0.4)]'
-                      : 'text-gray-600 hover:text-gray-900 hover:glass-card'
-                  }`}
-                >
-                  <tab.icon className="text-xs sm:text-sm shrink-0" />
-                  <span>{tab.label}</span>
-                </button>
+          <div className="text-center max-w-4xl mx-auto mb-10 space-y-4 reveal-element">
+            <h1 className="text-3xl sm:text-4xl lg:text-4xl font-black text-gray-900 leading-tight">Digital Marketing Services That Drive Real Results — Deckoid Solution, Rajkot</h1>
+            <p className="text-sm text-gray-600 max-w-3xl mx-auto">At Deckoid Solution, every service we offer is built around one goal: measurable growth for your business. From AI-powered SEO and performance-driven Facebook Ads to stunning web design, social media management, graphic design, and video editing — we cover every channel your brand needs to succeed online. Serving businesses across Rajkot, Gujarat, and India since 2018.</p>
+          </div>
+
+          {/* Our Services Infographic */}
+          <div className="max-w-[1200px] mx-auto mt-16 mb-20 px-2 sm:px-0">
+            <div className="text-center mb-12">
+              <h1 className="text-2xl sm:text-3xl font-black text-accent-purple text-gray-900">Our Services</h1>
+            </div>
+
+            <div className="space-y-4 max-w-[900px] mx-auto">
+              {servicesList.map((service, idx) => (
+                <div key={service.title} className="group rounded-[20px] border border-slate-200/80 bg-white px-4 py-4 shadow-[0_10px_22px_rgba(13,11,39,0.05)] transition-transform duration-300 hover:-translate-y-0.5">
+                  <div className="grid gap-3 items-center sm:grid-cols-[52px_minmax(0,1fr)_52px]">
+                    <div className="flex h-12 w-12 items-center justify-center rounded-full bg-[#8b5cf6] shadow-[0_8px_16px_rgba(139,92,246,0.18)] text-base font-extrabold text-white">
+                      0{idx + 1}
+                    </div>
+
+                    <div>
+                      <h3 className="text-base font-semibold text-slate-950 leading-snug">{service.title}</h3>
+                      <p className="mt-2 text-sm leading-6 text-slate-500">{service.desc}</p>
+                      <div className="mt-3">
+                        <Link to={service.route} className="inline-flex items-center gap-2 text-sm font-semibold text-[#8b5cf6] transition-transform duration-300 hover:translate-x-1">Learn More →</Link>
+                      </div>
+                    </div>
+
+            
+                  </div>
+                </div>
               ))}
             </div>
           </div>
 
-          {/* Active Tab Panel Render */}
-          <div className="min-h-[500px]">
-            
-            {/* WEB DEVELOPMENT PANEL */}
-            {activeTab === 'web' && (
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                {webMockups.map((item, index) => (
-                  <div 
-                    key={item.title} 
-                    className="flex flex-col glass-card border border-gray-200 rounded-2xl overflow-hidden shadow-xl hover:border-lavender/30 transition-all duration-300"
-                    style={{ transitionDelay: `${index * 50}ms` }}
-                  >
-                    {/* Scrolling mockups viewport */}
-                    <div className="relative overflow-hidden h-96 w-full bg-transparent group cursor-pointer">
-                      <img 
-                        src={item.img} 
-                        alt={item.title} 
-                        className="w-full absolute top-0 transition-transform duration-[6000ms] ease-in-out transform translate-y-0 group-hover:-translate-y-[calc(100%-24rem)]"
-                        loading="lazy"
-                      />
-                      {/* Interactive scroll help hint */}
-                      <div className="absolute bottom-4 right-4 z-20 px-3 py-1.5 rounded-lg bg-transparent border border-gray-200 text-[10px] font-bold text-accent-purple uppercase tracking-widest pointer-events-none opacity-80 group-hover:opacity-0 transition-opacity">
-                        Hover to scroll
-                      </div>
-                    </div>
-                    {/* Mockup details */}
-                    <div className="p-5 text-left flex justify-between items-center">
-                      <div>
-                        <h4 className="text-gray-900 font-bold text-lg mb-1">{item.title}</h4>
-                        <span className="text-xs text-accent-purple font-semibold uppercase tracking-wider">{item.client}</span>
-                      </div>
-                      <a href="#" className="w-8 h-8 rounded-lg glass-card flex items-center justify-center text-gray-500 hover:bg-lavender hover:text-midnight transition-colors" aria-label="Visit site">
-                        <FaExternalLinkAlt size={12} />
-                      </a>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            )}
-
-            {/* GRAPHIC DESIGN PANEL */}
-            {activeTab === 'graphics' && (
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-                {graphicsMockups.map((item, index) => (
-                  <div 
-                    key={item.title} 
-                    className="group glass-card border border-gray-200 rounded-2xl overflow-hidden shadow-lg hover:border-lavender/30 transition-all duration-300 hover:-translate-y-1"
-                    style={{ transitionDelay: `${index * 50}ms` }}
-                  >
-                    <div className="relative overflow-hidden aspect-square w-full">
-                      <img 
-                        src={item.img} 
-                        alt={item.title} 
-                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-103"
-                        loading="lazy"
-                      />
-                    </div>
-                    <div className="p-4 text-left border-t border-gray-200">
-                      <h4 className="text-gray-900 font-bold text-base mb-0.5 truncate">{item.title}</h4>
-                      <span className="text-2xs text-gray-500 uppercase tracking-widest">{item.client}</span>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            )}
-
-            {/* SOCIAL MEDIA PANEL */}
-            {activeTab === 'social' && (
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-                {socialMockups.map((item, index) => (
-                  <div 
-                    key={index} 
-                    className="group glass-card border border-gray-200 rounded-2xl overflow-hidden shadow-lg hover:border-lavender/30 transition-all duration-300 hover:-translate-y-1"
-                    style={{ transitionDelay: `${index * 50}ms` }}
-                  >
-                    <div className="relative overflow-hidden aspect-square w-full">
-                      <img 
-                        src={item.img} 
-                        alt={item.title} 
-                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-103"
-                        loading="lazy"
-                      />
-                    </div>
-                    <div className="p-4 text-left border-t border-gray-200">
-                      <h4 className="text-gray-900 font-bold text-sm mb-0.5 truncate">{item.title}</h4>
-                      <span className="text-2xs text-accent-purple font-bold uppercase tracking-wider block truncate">{item.client}</span>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            )}
-
-            {/* FACEBOOK PAID ADS PANEL */}
-            {activeTab === 'ads' && (
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                {adsMockups.map((item, index) => (
-                  <div 
-                    key={item.title} 
-                    className="flex flex-col glass-card border border-gray-200 rounded-2xl overflow-hidden shadow-xl hover:border-lavender/30 transition-all duration-300"
-                    style={{ transitionDelay: `${index * 50}ms` }}
-                  >
-                    {/* Scrolling mockups viewport */}
-                    <div className="relative overflow-hidden h-96 w-full bg-transparent group  cursor-pointer">
-                      <img 
-                        src={item.img} 
-                        alt={item.title} 
-                        className="w-full absolute top-0 transition-transform duration-[6000ms] ease-in-out transform translate-y-0 group-hover:-translate-y-[calc(100%-24rem)]"
-                        loading="lazy"
-                      />
-                      {/* Interactive scroll help hint */}
-                      <div className="absolute bottom-4 right-4 z-20 px-3 py-1.5 rounded-lg bg-transparent border border-gray-200 text-[10px] font-bold text-accent-purple uppercase tracking-widest pointer-events-none opacity-80 group-hover:opacity-0 transition-opacity">
-                        Hover to scroll
-                      </div>
-                    </div>
-                    {/* Mockup details */}
-                    <div className="p-5 text-left">
-                      <h4 className="text-gray-900 font-bold text-lg mb-1">{item.title}</h4>
-                      <span className="text-xs text-accent-purple font-semibold uppercase tracking-wider">{item.client}</span>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            )}
-
-            {/* GOOGLE ADS PANEL */}
-            {activeTab === 'google' && (
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                {googleMockups.map((item, index) => (
-                  <div 
-                    key={item.title} 
-                    className="flex flex-col glass-card border border-gray-200 rounded-2xl overflow-hidden shadow-xl hover:border-lavender/30 transition-all duration-300"
-                    style={{ transitionDelay: `${index * 50}ms` }}
-                  >
-                    <div className="relative overflow-hidden h-96 w-full bg-transparent group  cursor-pointer">
-                      <img 
-                        src={item.img} 
-                        alt={item.title} 
-                        className="w-full absolute top-0 transition-transform duration-[6000ms] ease-in-out transform translate-y-0 group-hover:-translate-y-[calc(100%-24rem)]"
-                        loading="lazy"
-                      />
-                      <div className="absolute bottom-4 right-4 z-20 px-3 py-1.5 rounded-lg bg-transparent border border-gray-200 text-[10px] font-bold text-accent-purple uppercase tracking-widest pointer-events-none opacity-80 group-hover:opacity-0 transition-opacity">
-                        Hover to scroll
-                      </div>
-                    </div>
-                    <div className="p-5 text-left">
-                      <h4 className="text-gray-900 font-bold text-lg mb-1">{item.title}</h4>
-                      <span className="text-xs text-accent-purple font-semibold uppercase tracking-wider">{item.client}</span>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            )}
-
-            {/* VIDEO EDITING PANEL (HTML5 Replayable Controls) */}
-            {activeTab === 'videos' && (
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                {videosMockups.map((item, index) => (
-                  <div 
-                    key={item.title} 
-                    className="flex flex-col glass-card border border-gray-200 rounded-2xl overflow-hidden shadow-xl hover:border-lavender/30 transition-all duration-300"
-                    style={{ transitionDelay: `${index * 50}ms` }}
-                  >
-                    {/* HTML5 Native Video Viewport */}
-                    <div className="relative h-[480px] bg-transparent overflow-hidden flex items-center justify-center  group">
-                      <video 
-                        className="w-full h-full object-cover"
-                        controls 
-                        preload="none"
-                        playsInline
-                      >
-                        <source src={item.src} type="video/mp4" />
-                        Your browser does not support the video tag.
-                      </video>
-                      {/* Custom play icon helper overlay (hides on play click if default browser handles) */}
-                      <div className="absolute w-14 h-14 rounded-full bg-lavender text-midnight flex items-center justify-center shadow-lg transition-transform duration-300 pointer-events-none group-hover:scale-110 opacity-70 group-hover:opacity-0 z-10">
-                        <FaPlay className="text-lg ml-0.5" />
-                      </div>
-                    </div>
-                    {/* Mockup details */}
-                    <div className="p-5 text-left">
-                      <h4 className="text-gray-900 font-bold text-base mb-0.5 truncate">{item.title}</h4>
-                      <span className="text-xs text-gray-500">{item.type}</span>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            )}
-
-            {/* ERP SOFTWARE PANEL */}
-            {activeTab === 'erp' && (
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                {erpMockups.map((item, index) => (
-                  <div 
-                    key={item.title} 
-                    className="flex flex-col glass-card border border-gray-200 rounded-2xl overflow-hidden shadow-xl hover:border-lavender/30 transition-all duration-300"
-                    style={{ transitionDelay: `${index * 50}ms` }}
-                  >
-                    <div className="relative overflow-hidden h-96 w-full bg-transparent group cursor-pointer">
-                      <img 
-                        src={item.img} 
-                        alt={item.title} 
-                        className="w-full absolute top-0 transition-transform duration-[6000ms] ease-in-out transform translate-y-0 group-hover:-translate-y-[calc(100%-24rem)]"
-                        loading="lazy"
-                      />
-                      <div className="absolute bottom-4 right-4 z-20 px-3 py-1.5 rounded-lg bg-transparent border border-gray-200 text-[10px] font-bold text-accent-purple uppercase tracking-widest pointer-events-none opacity-80 group-hover:opacity-0 transition-opacity">
-                        Hover to scroll
-                      </div>
-                    </div>
-                    <div className="p-5 text-left">
-                      <h4 className="text-gray-900 font-bold text-lg mb-1">{item.title}</h4>
-                      <span className="text-xs text-accent-purple font-semibold uppercase tracking-wider">{item.client}</span>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            )}
-
+          {/* Industries Section — Full Width Below Services */}
+          <div className="mt-16">
+            <div className="max-w-[900px] mx-auto text-center">
+              <h2 className="text-2xl font-bold mb-3">Industries We've Helped Grow</h2>
+              <p className="text-sm text-gray-600 mb-6">We've worked across many industries. Select one to learn more about how we tailor strategies to your sector.</p>
+            </div>
+            <div className="mx-auto grid max-w-[900px] grid-cols-1 gap-3 sm:grid-cols-2">
+              {[
+                ['🏢', 'Real Estate & Property'],
+                ['🎓', 'Education & Coaching'],
+                ['👗', 'Fashion & Apparel'],
+                ['💎', 'Jewellery & Accessories'],
+                ['💚', 'Health & Wellness'],
+                ['✈️', 'Travel & Hospitality'],
+                ['🛒', 'Retail & E-Commerce'],
+                ['🏭', 'Manufacturing & Industrial'],
+                ['🌾', 'Agriculture & Agri-Products'],
+                ['⚗️', 'Chemicals & Pharmaceuticals'],
+                ['🦷', 'Dental & Medical Clinics'],
+                ['🍔', 'Food & Beverage / FMCG'],
+                ['🏗️', 'Construction & Infrastructure'],
+                ['💻', 'IT & Technology'],
+                ['🍃', 'Organic & Natural Products'],
+                ['🐾', 'Pet Care & Veterinary']
+              ].map(([emoji, name]) => (
+                <div key={name} className="flex items-center gap-3 rounded-md border border-gray-100 bg-white px-4 py-3">
+                  <div className="text-xl">{emoji}</div>
+                  <div className="text-sm text-gray-700">{name}</div>
+                </div>
+              ))}
+            </div>
+            <p className="mt-4 max-w-[900px] mx-auto text-center text-sm text-gray-600">Don't see your industry? Get in touch and we'll show how we can help your specific business grow online.</p>
           </div>
 
+          {/* FAQ Section - Redesigned */}
+          <div className="pt-[100px] pb-[100px]">
+            <div className="max-w-[1100px] mx-auto text-center">
+              <h2 className="text-[52px] sm:text-[42px] text-[32px] md:text-[52px] font-extrabold text-[#0d0b27]">Frequently Asked Questions About Deckoid Solution's Services</h2>
+              <div className="w-20 h-1 rounded-full bg-[#8b5cf6] mx-auto mt-6 mb-12" style={{width: '80px', height: '4px', borderRadius: '50px'}} />
+            </div>
+
+            <div className="max-w-[900px] mx-auto space-y-5">
+              {[
+                {
+                  question: 'What digital marketing services does Deckoid Solution offer?',
+                  answer: `Deckoid Solution offers six core services: SEO (Search Engine Optimisation), Facebook & Instagram Ads, Social Media Management, Website Design & Development, Graphic Design, and Video Editing & AI Video Creation. All services are available for businesses in Rajkot, Gujarat, and across India.`
+                },
+                {
+                  question: 'Can I get multiple services from Deckoid Solution as a package?',
+                  answer: `Yes. Many of our clients combine services — for example, SEO + Website Design, or Social Media Management + Graphic Design + Video Editing. We build custom service combinations based on your goals and budget. Contact us to discuss what combination makes sense for your business.`
+                },
+                {
+                  question: 'How is Deckoid Solution different from other digital marketing agencies in Rajkot?',
+                  answer: `Three things set Deckoid Solution apart: we use AI tools across every service to deliver faster, smarter results; we are a RITA award-winning agency recognised for outstanding achievement in IT and Digital Marketing; and all services are managed by our founder, Jigna Pipalia, who has 8+ years of experience and has personally served 1,000+ clients across India.`
+                },
+                {
+                  question: 'Do you work with small businesses or only large companies?',
+                  answer: `We work with businesses of all sizes — from solo entrepreneurs and small local businesses in Rajkot to mid-sized companies operating nationally across India. Every strategy is tailored to the client's specific goals and budget.`
+                },
+                {
+                  question: 'How do I get started with Deckoid Solution?',
+                  answer: `The easiest way is to reach us on WhatsApp or by filling out the contact form on our website. We start with a free consultation to understand your business goals — then recommend the right services and build a strategy around your needs.`
+                }
+              ].map((item, idx) => (
+                <details key={idx} className="bg-white rounded-[20px] p-[28px] border" style={{boxShadow: '0 12px 30px rgba(13,11,39,0.08)', border: '1px solid rgba(139,92,246,0.08)', transition: 'transform .3s ease'}}>
+                  <summary className="flex items-center justify-between cursor-pointer list-none">
+                    <div className="text-left">
+                      <div className="text-[22px] font-bold text-[#0d0b27]">{item.question}</div>
+                    </div>
+                    <div className="text-[#8b5cf6] text-[20px] ml-4">*</div>
+                  </summary>
+                  <div className="mt-4 overflow-hidden transition-all duration-300">
+                    <p className="text-[18px] leading-[1.9] text-[#64748b] text-left">{item.answer}</p>
+                  </div>
+                </details>
+              ))}
+            </div>
+          </div>
+
+          {/* CTA - Redesigned */}
+          <div className="max-w-[1200px] mx-auto mt-[80px] mb-[100px] px-4">
+            <div className="rounded-[32px] p-[80px] sm:p-[48px] text-center border border-white/10 shadow-[0_35px_85px_rgba(13,11,39,0.25)]" style={{background: 'linear-gradient(180deg, rgba(30,18,73,0.95) 0%, rgba(26,16,48,0.98) 100%)'}}>
+              <h2 className="text-[54px] sm:text-[42px] text-[32px] font-extrabold text-white drop-shadow-[0_18px_40px_rgba(0,0,0,0.35)]">Ready to Grow Your Business? Let's Talk.</h2>
+              <p className="mt-6 mx-auto text-[20px] leading-[1.9] text-white" style={{maxWidth: '850px', color: 'rgba(255,255,255,0.92)'}}>
+                Whether you need SEO, paid ads, a new website, social media management, design, or video content — Deckoid Solution has the expertise, the tools, and the proven track record to help your business grow online. Serving businesses in Rajkot, Gujarat, and across India since 2018.
+              </p>
+
+              <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-5">
+                <a href="https://api.whatsapp.com/send/?phone=919586536724" className="inline-flex items-center justify-center px-9 py-4 bg-[#8b5cf6] text-white font-semibold rounded-full shadow-[0_10px_30px_rgba(139,92,246,0.28)]">Let's Talk</a>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
-
     </div>
   );
 }
